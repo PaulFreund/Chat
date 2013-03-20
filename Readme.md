@@ -2,7 +2,7 @@
 
 ## Personal comment ##
 
-Special thanks goes to [Dieter Lunn](https://github.com/coder2000), who wrote the original ubiety XMPP library and [Andrew Joyce](http://mosaic.ws/), who helped me a LOT with improving the design(he's really talented).
+Special thanks go to [Dieter Lunn](https://github.com/coder2000), who wrote the original ubiety XMPP library and [Andrew Joyce](http://mosaic.ws/), who helped me a LOT with improving the design(he's really talented).
 
 The Application is available for free in the [Windows Store](http://apps.microsoft.com/windows/en-US/app/chat/1e215c25-ddd0-4f8c-b62d-b2ad26a4f29e) and I decided to make the code open source in order to share my efforts.
 
@@ -14,7 +14,7 @@ Chat depends on my fork of the ubiety XMPP library. The library is linked as a s
 
 ## Contributions ##
 
-In order to improve not only the code but also the application in the store I would be happy to see others contribute to this project. There also is a feedback platform available [here](http://feedback.lvl3.org/).
+In order to improve not only the code but also the application in the store I would be happy to see others contribute to this project. There is also a feedback platform available [here](http://feedback.lvl3.org/).
 
 ## License ##
 
