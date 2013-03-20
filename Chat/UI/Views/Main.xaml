@@ -1,0 +1,234 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<common:LayoutAwarePage
+    x:Name="mainView"
+    x:Class="Chat.UI.Views.Main"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Views"
+    xmlns:common="using:Chat.Common"    
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:controls="using:Chat.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="Global User Interface"
+    >
+    
+    <common:LayoutAwarePage.Resources>
+        <converter:ExistanceToEnabledConverter x:Name="EnabledConverter" />
+        <converter:BooleanToVisibilityConverter x:Name="BoolConverter" />
+        <converter:CountToNotificationTextConverter x:Name="CountToTextConverter" />
+        <converter:NotificationTypeToColor x:Name="TypeToColor" />
+        <converter:BoolToFlowDirectionConverter x:Name="BoolToFlow" />
+        <converter:BoolToEdgeConverter x:Name="BoolToEdge" />
+    </common:LayoutAwarePage.Resources>
+
+
+    <Grid 
+        x:Name="MainGrid" 
+        Background="{Binding ContentBackground, Source={StaticResource AppColors}}"
+        FlowDirection="{Binding invertInterface, Converter={StaticResource BoolToFlow}}"
+    >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="NoAccountsOverlay"  Background="{Binding ContentBackground, Source={StaticResource AppColors}}" Visibility="Collapsed" Grid.ColumnSpan="2" Canvas.ZIndex="10"  FlowDirection="LeftToRight">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="768">
+                <TextBlock x:Uid="NoAccountsOverlayWelcome" Text="Welcome to Chat" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontFamily="Segoe UI Semilight" FontWeight="SemiLight" TextWrapping="NoWrap" Margin="0,0,0,50" />
+                <RichTextBlock Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Segoe UI Semilight" TextWrapping="Wrap">
+                    <Paragraph>
+                        <Run x:Uid="NoAccountsOverlayText" Text="Please use the App bar or the settings charm to create an account. If you have questions, problems or suggestions please visit " />
+                        <InlineUIContainer >
+                            <HyperlinkButton 
+                                NavigateUri="http://feedback.lvl3.org"
+                                Content="http://feedback.lvl3.org" 
+                                Foreground="Blue" 
+                                FontWeight="SemiLight" 
+                                FontSize="20" 
+                                FontFamily="Segoe UI Semilight" 
+                                Padding="0,0,0,-9" 
+                                
+                                VerticalAlignment="Bottom"
+                                VerticalContentAlignment="Bottom"
+                            />
+                        </InlineUIContainer>
+                    </Paragraph>
+                    <Paragraph>
+                        <LineBreak />
+                        <Run x:Uid="NoAccountsOverlayGoogle" Text="If you need a Google Talk account please visit " />
+                        <InlineUIContainer >
+                            <HyperlinkButton 
+                                NavigateUri="http://google.com/mail"
+                                Content="http://google.com/mail" 
+                                Foreground="Blue" 
+                                FontWeight="SemiLight" 
+                                FontSize="20" 
+                                FontFamily="Segoe UI Semilight" 
+                                Padding="0,0,0,-9" 
+                                
+                                VerticalAlignment="Bottom"
+                                VerticalContentAlignment="Bottom"
+                            />
+                        </InlineUIContainer>
+                        <Run x:Uid="NoAccountsOverlayFacebook" Text=" and if you need a Facebook account please visit " />
+                        <InlineUIContainer >
+                            <HyperlinkButton 
+                                NavigateUri="http://facebook.com"
+                                Content="http://facebook.com" 
+                                Foreground="Blue" 
+                                FontWeight="SemiLight" 
+                                FontSize="20" 
+                                FontFamily="Segoe UI Semilight" 
+                                Padding="0,0,0,-9" 
+                                
+                                VerticalAlignment="Bottom"
+                                VerticalContentAlignment="Bottom"
+                            />
+                        </InlineUIContainer>
+                        <Run x:Uid="NoAccountsOverlayXMPP" Text=". For XMPP accounts feel free to find a provider that suites you best." />
+                    </Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="0">
+            <Border.Transitions>
+                <TransitionCollection>
+                    <EdgeUIThemeTransition Edge="{Binding invertInterface, Converter={StaticResource BoolToEdge}}"/>
+                </TransitionCollection>
+            </Border.Transitions>
+            <Grid 
+                x:Name="LeftGridControl" 
+                Background="{Binding ContactListBackground, Source={StaticResource AppColors}}"
+                Width="320" 
+                FlowDirection="LeftToRight" 
+                Margin="0,0,0,0" 
+            >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                
+                <Button 
+                    Background="{Binding FrameBackground, Source={StaticResource AppColors}}" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" 
+                    VerticalContentAlignment="Stretch" 
+                    HorizontalContentAlignment="Stretch" 
+                    Style="{StaticResource SimpleButton}" 
+                    Click="OnStatusEdit"
+                >
+                    <Border IsHitTestVisible="True" BorderThickness="0">
+                        <controls:Status x:Name="StatusControl" Margin="0" />
+                    </Border>
+                </Button>
+
+                <ProgressBar 
+                    x:Name="IsLoading" 
+                    Visibility="{Binding IsLoading, Converter={StaticResource BoolConverter}}" 
+                    Grid.Row="0" 
+                    Canvas.ZIndex="3" 
+                    VerticalAlignment="Bottom" 
+                    IsIndeterminate="True" 
+                    Margin="5"
+                />
+                
+                <Button 
+                    Style="{StaticResource SimpleButton}"
+                    x:Name="NotificationButton"
+                    Visibility="{Binding HasNotifications, Converter={StaticResource BoolConverter}}"
+                    Background="{Binding WorstType, Converter={StaticResource TypeToColor}}"
+                    Grid.Row="1" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" 
+                    Height="80" 
+                    Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}" 
+                    Margin="0" 
+                    Click="OpenNotifications" Padding="0"
+                >
+                    <Button.Transitions>
+                        <TransitionCollection>
+                            <EdgeUIThemeTransition Edge="Left"/>
+                        </TransitionCollection>
+                    </Button.Transitions>
+                    <Button.Content>
+                        <TextBlock>
+                            <Run Text="{Binding NotificationCount}" />
+                            <Run Text="{Binding NotificationCount, Converter={StaticResource CountToTextConverter}}" />
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+
+                <controls:Roster x:Name="RosterControl" Grid.Row="2" />
+            </Grid>
+        </Border>
+
+        <Grid x:Name="RightGridControl" Grid.Column="1" MinWidth="320" FlowDirection="LeftToRight">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Border Background="{Binding FrameBackground, Source={StaticResource AppColors}}">
+                <Border.Transitions>
+                    <TransitionCollection>
+                        <EdgeUIThemeTransition Edge="Top"/>
+                    </TransitionCollection>
+                </Border.Transitions>
+                <controls:ConversationHeader x:Name="ConversationHeaderControl" Grid.Row="0" />
+            </Border>
+            <controls:Conversation x:Name="ConversationControl" Grid.Row="1" Margin="0,0,0,0" />            
+        </Grid>
+    </Grid>
+    
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="AppBar" Padding="10,0,10,0" Background="{Binding FrameBackground, Source={StaticResource AppColors}}" BorderBrush="{x:Null}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*" MinWidth="60" MaxWidth="100"/>
+                        <ColumnDefinition Width="100*" MinWidth="60" MaxWidth="100"/>
+                        <ColumnDefinition Width="100*" MinWidth="60" MaxWidth="100"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="100*" MinWidth="60" MaxWidth="100"/>
+                        <ColumnDefinition Width="100*" MinWidth="60" MaxWidth="100"/>
+                    </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" x:Uid="AddContactButton"    x:Name="AddContact"    Background="{Binding FrameBackground, Source={StaticResource AppColors}}" Foreground="{Binding FrameForeground, Source={StaticResource AppColors}}" Style="{StaticResource AddAppBarButtonStyle}"         AutomationProperties.Name="Add"     Click="OnAddContact" />
+                <Button Grid.Column="1" x:Uid="RemoveContactButton" x:Name="RemoveContact" Background="{Binding FrameBackground, Source={StaticResource AppColors}}" Foreground="{Binding FrameForeground, Source={StaticResource AppColors}}" Style="{StaticResource RemoveAppBarButtonStyle}"      AutomationProperties.Name="Remove"  Click="OnRemoveContact" />
+                <Button Grid.Column="2" x:Uid="ContactInfoButton"   x:Name="ContactInfo"   Background="{Binding FrameBackground, Source={StaticResource AppColors}}" Foreground="{Binding FrameForeground, Source={StaticResource AppColors}}" Style="{StaticResource EditAppBarButtonStyle}"        AutomationProperties.Name="Edit"    Click="OnContactInfo" />
+                <Button Grid.Column="4" x:Uid="AccountsButton"      x:Name="Accounts"      Background="{Binding FrameBackground, Source={StaticResource AppColors}}" Foreground="{Binding FrameForeground, Source={StaticResource AppColors}}" Style="{StaticResource FavoriteAppBarButtonStyle}"    AutomationProperties.Name="Accounts"        Click="OnAccountsButton"/>
+                <Button Grid.Column="5" x:Uid="SettingsButton"      x:Name="Settings"      Background="{Binding FrameBackground, Source={StaticResource AppColors}}" Foreground="{Binding FrameForeground, Source={StaticResource AppColors}}" Style="{StaticResource SettingsAppBarButtonStyle}"    AutomationProperties.Name="Settings"        Click="OnSettingsButton" />
+                </Grid>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
+
+</common:LayoutAwarePage>

@@ -1,0 +1,210 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    x:Class="Chat.UI.Flyout.AccountEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Flyout"
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="266"
+    d:DesignHeight="1500"
+>
+        <StackPanel>
+
+        <!--General-->
+
+        <TextBlock x:Uid="LabelTitle" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Account name" />
+        <TextBox Style="{StaticResource FlyoutInput}" x:Name="Title" />
+
+        <TextBlock x:Uid="LabelColor" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Color"  />
+        <ComboBox x:Name="ColorSelector" Style="{StaticResource FlyoutComboBox}">
+            <ComboBoxItem x:Name="Pink" Tag="#FFDC4FAD" Padding="8,5"> <Grid><Grid.ColumnDefinitions> <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <Rectangle Height="15" Width="15" Margin="0" >
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFDC4FAD" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock  x:Uid="ColorPickerPink" Text="Pink" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" /> 
+            </Grid></ComboBoxItem>
+            <ComboBoxItem x:Name="Mango" Tag="#FFFF8F32" Padding="8,5"> <Grid><Grid.ColumnDefinitions> <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions> 
+                    <Rectangle Height="15" Width="15" Margin="0" >
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFFF8F32" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock  x:Uid="ColorPickerMango" Text="Mango" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" /> 
+            </Grid></ComboBoxItem>
+            <ComboBoxItem x:Name="Lime" Tag="#FF83BA1F" Padding="8,5"> <Grid><Grid.ColumnDefinitions> <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions> 
+                    <Rectangle Height="15" Width="15" Margin="0" >
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FF83BA1F" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock x:Uid="ColorPickerLime" Text="Lime" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" /> 
+            </Grid></ComboBoxItem>
+            <ComboBoxItem x:Name="Turquoise" Tag="#FF00AAAA" Padding="8,5"> <Grid><Grid.ColumnDefinitions> <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions> 
+                <Rectangle Height="15" Width="15" Margin="0" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                            <GradientStop Color="White"/>
+                                <GradientStop Color="#FF00AAAA" Offset="0.5"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock x:Uid="ColorPickerTurquoise" Text="Turquoise" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" /> 
+            </Grid></ComboBoxItem>
+            <ComboBoxItem x:Name="Sky" Tag="#FF53BDFA" Padding="8,5"> <Grid><Grid.ColumnDefinitions> <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <Rectangle Height="15" Width="15" Margin="0" >
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FF53BDFA" Offset="0.5"/>
+                                <GradientStop Color="Black" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock x:Uid="ColorPickerSky" Text="Sky" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" /> 
+            </Grid></ComboBoxItem>
+        </ComboBox>
+
+        <!--Account-->
+
+        <TextBlock x:Uid="LabelJID" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Jabber-ID (JID) im Format user@server.tld"/>
+        <TextBox x:Name="Jid" Style="{StaticResource FlyoutInput}" />
+
+
+        <TextBlock x:Uid="LabelPassword" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Password"/>
+        <PasswordBox x:Name="Password" Style="{StaticResource FlyoutPassword}"  />                
+
+        <!--Server-->
+
+        <TextBlock x:Uid="LabelHost" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Server address (Domain or IP)"/>
+        <TextBox x:Name="Host" Style="{StaticResource FlyoutInput}" />
+
+        <StackPanel x:Name="ExtendedSettings" Visibility="Collapsed" >
+
+            <TextBlock x:Uid="LabelPort" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Serverport (Default 5222)"/>
+            <TextBox x:Name="Port" Style="{StaticResource FlyoutInput}" MaxLength="5" HorizontalAlignment="Left" Text="5222" />
+
+            <TextBlock x:Uid="SSLWarning" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Warning, Windows 8 dosn't acceppt self signed certificates!" TextWrapping="Wrap"  />
+
+            <ToggleSwitch 
+                x:Name="SSL" 
+                x:Uid="AccountEditSwitchUseSSL" 
+                IsOn="False" 
+                Header="Connect using SSL" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+
+            <ToggleSwitch 
+                x:Name="OldSSL" 
+                x:Uid="AccountEditSwitchOldStyleSSL" 
+                IsOn="False" 
+                Header="Use old SSL method" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+
+            <!--Mechsnisms-->
+
+            <ToggleSwitch 
+                x:Name="Plain" 
+                x:Uid="AccountEditSwitchPlain" 
+                IsOn="False" 
+                Header="Allow unencrypted authentification" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+            <StackPanel />
+            <ToggleSwitch 
+                x:Name="MD5" 
+                x:Uid="AccountEditSwitchMD5" 
+                IsOn="True" 
+                Header="Allow MD5 encrypted authentification" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+
+            <ToggleSwitch 
+                x:Name="SCRAM" 
+                x:Uid="AccountEditSwitchSCRAM" 
+                IsOn="True" 
+                Header="Allow SCRAM encrypted authentification" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+
+
+        </StackPanel>
+
+        <TextBlock x:Uid="ImportantLabel" Style="{StaticResource FlyoutImportant}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Important" />
+        <TextBlock x:Uid="ConnectedStandbyDescription" Style="{StaticResource FlyoutRun}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="This application supports connected Standby, the currenty policy allows the first three Lockscreen Apps to use this feature with up to two connections. Enabling it on more connections can result in errors." />
+
+        <ToggleSwitch 
+                x:Name="ConnectedStandby" 
+                x:Uid="AccountEditSwitchConnectedStandby" 
+                IsOn="True" 
+                Header="Enable Connected Standby if available" 
+                Style="{StaticResource FlyoutToggleSwitch}" 
+                OffContent="{StaticResource ToggleSwitchOffText}" 
+                OnContent="{StaticResource ToggleSwitchOnText}" 
+            />
+
+        <Button x:Name="ExtendedSettingsButton" x:Uid="ButtonExtendedSettings" Style="{StaticResource FlyoutButton}" Content="Extended settings" Click="OnExtendedSettings"/>
+
+        <TextBlock x:Name="Warning" x:Uid="FormInvalidWarning" Style="{StaticResource FlyoutWarning}" Foreground="{Binding HighlightImportant, Source={StaticResource AppColors}}" Text="Please enter all required information!" Visibility="Collapsed" />
+
+        <StackPanel Margin="0,10,0,10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Uid="ButtonCancel" Style="{StaticResource FlyoutButton}" Content="Cancel" Click="Cancel"/>
+            <Button x:Uid="ButtonSave" Style="{StaticResource FlyoutButton}" Content="Save" Click="Save" />
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,147 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    x:Name="ContactControlBase"
+    x:Class="Chat.UI.Controls.ContactControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:Chat.Common"
+    xmlns:converter ="using:Chat.UI.Converter"
+    mc:Ignorable="d"
+    d:DesignHeight="100"
+    d:DesignWidth="320"
+>
+
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" Margin="0" Background="{Binding ElementName=ContactControlBase, Path=ContactBackground}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Avatar -->
+
+            <local:AvatarControl 
+                Height="60" 
+                Width="60" 
+                HorizontalAlignment="Center"  
+                VerticalAlignment="Center" 
+                AvatarImage="{Binding ElementName=ContactControlBase, Path=ContactImage}"
+            />
+
+            <Path 
+                Visibility="{Binding ElementName=ContactControlBase, Path=ShowAccount, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Grid.Column="0" 
+                Height="60" 
+                Width="60" 
+                Canvas.ZIndex="2" 
+            >
+                <Path.Fill>
+                    <LinearGradientBrush StartPoint="0,-5" EndPoint="0,6">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="{Binding ElementName=ContactControlBase, Path=AccountColor}" Offset="0.5"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigure StartPoint="46,60" IsClosed="True">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="60,60" />
+                                    <LineSegment Point="60,46" />
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path 
+                Visibility="{Binding ElementName=ContactControlBase, Path=ShowAccount, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Grid.Column="0" 
+                Height="60" 
+                Width="60" 
+                Canvas.ZIndex="1" 
+                Fill="{Binding ContactListBackground, Source={StaticResource AppColors}}"
+            >
+                    <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigure StartPoint="44,60" IsClosed="True">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="60,60" />
+                                    <LineSegment Point="60,44" />
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathGeometry.Figures >
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <!-- Status and message -->
+            <StackPanel Margin="0,0,0,0" Grid.Column="2" VerticalAlignment="Center">
+                <Viewbox Height="25"  HorizontalAlignment="Left">
+                    <TextBlock 
+                        Foreground="{Binding ElementName=ContactControlBase, Path=ContactForeground}" 
+                        Visibility="{Binding ElementName=ContactControlBase, Path=ContactName, Converter={StaticResource StringToVisibilityConverter}}" 
+                        HorizontalAlignment="Left"  
+                        VerticalAlignment="Center" 
+                        Text="{Binding ElementName=ContactControlBase, Path=ContactName}"   
+                        TextTrimming="WordEllipsis"  
+                        TextWrapping="Wrap" 
+                        FontSize="32" 
+                        FontWeight="SemiLight" 
+                    />
+                </Viewbox>
+                <TextBlock 
+                    Foreground="{Binding ElementName=ContactControlBase, Path=ContactForeground}" 
+                    Height="35" 
+                    Visibility="{Binding ElementName=ContactControlBase, Path=ContactMessage, Converter={StaticResource StringToVisibilityConverter}}" 
+                    HorizontalAlignment="Left"  
+                    VerticalAlignment="Center" 
+                    Text="{Binding ElementName=ContactControlBase, Path=ContactMessage}" 
+                    TextTrimming="WordEllipsis" 
+                    TextWrapping="Wrap" 
+                    FontSize="13" 
+                    FontStyle="Italic" 
+                    FontWeight="Light"
+                />
+            </StackPanel>
+
+            <!-- Status -->
+
+            <Rectangle Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" Width="20" Height="20" Margin="0" Fill="{Binding ElementName=ContactControlBase, Path=ContactStatus, Converter={StaticResource ContactStatusToColor}}" />
+        </Grid>
+    </Grid>
+</UserControl>

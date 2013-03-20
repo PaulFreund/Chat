@@ -1,0 +1,166 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    x:Class="Chat.UI.Flyout.SettingsEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Flyout"
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="266"
+    d:designHeight="1000"
+>
+    
+    <StackPanel>
+
+        <ToggleSwitch 
+            x:Uid="SettingsInvertInterface" 
+            IsOn="{Binding invertInterface, Mode=TwoWay}"
+            Header="Right side contact list" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsShowOffline" 
+            IsOn="{Binding showOffline, Mode=TwoWay}"
+            Header="Show offline contacts" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsAutoSortRoster" 
+            IsOn="{Binding autoSortRoster, Mode=TwoWay}"
+            Header="Sort contact list" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />        
+        
+        <ToggleSwitch 
+            x:Uid="SettingsAutoScrollRoster" 
+            IsOn="{Binding autoScrollRoster, Mode=TwoWay}"
+            Header="Auto scroll contact list" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsStickyRosterContacts" 
+            IsOn="{Binding stickyRosterContacts, Mode=TwoWay}"
+            Header="Recent contacts at top of contact list" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsAutoDownloadAvatars" 
+            IsOn="{Binding autoDownloadAvatars, Mode=TwoWay}"
+            Header="Download contact avatars" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        /> 
+
+        <ToggleSwitch 
+            x:Uid="SettingsInvertOwnMessages" 
+            IsOn="{Binding invertOwnMessages, Mode=TwoWay}"
+            Header="Invert my messages" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsAllowUnknown" 
+            IsOn="{Binding allowUnknownSenders, Mode=TwoWay}"
+            Header="Allow messages from unknown senders" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsShowInformativeErrors" 
+            IsOn="{Binding showInformativeErrors, Mode=TwoWay}"
+            Header="Show non-critical errors" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsAutoAway" 
+            IsOn="{Binding autoAway, Mode=TwoWay}"
+            Header="Auto away" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <TextBlock x:Uid="LabelAutoAwayMessage" Style="{StaticResource FlyoutLabel}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Auto away Message"/>
+        <TextBox Style="{StaticResource FlyoutInput}" Text="{Binding autoAwayMessage, Mode=TwoWay}" />
+
+        <ToggleSwitch 
+            x:Uid="SettingsNotifications" 
+            IsOn="{Binding notificationToast, Mode=TwoWay}"
+            Header="Enable notifications" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsNotificationsVisible" 
+            IsOn="{Binding notificationVisible, Mode=TwoWay}"
+            Header="Show notifications when application visible" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsAcousticNotifications" 
+            IsOn="{Binding notificationSound, Mode=TwoWay}"
+            Header="Acoustic notifications" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <TextBlock x:Uid="SettingsAcousticNotificationsDescription" Style="{StaticResource FlyoutRun}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="Chat uses the 'Instant Message Notification' sound from windows, you can change it in Control Panel / Sound" />
+
+    </StackPanel>
+</UserControl>

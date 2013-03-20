@@ -1,0 +1,79 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    x:Class="Chat.UI.Flyout.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Flyout"
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="266"
+    d:designHeight="614"
+>
+
+    <StackPanel>
+        <TextBlock x:Uid="AuthorLabel" Style="{StaticResource FlyoutImportant}" Text="Author" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" />
+        <RichTextBlock Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Style="{StaticResource FlyoutRunRich}" >
+            <Paragraph>
+                <Run x:Uid="AboutAuthor" Text="Chat is written by Paul Freund - LVL3 Solutions. Feel free to submit questions and sugggestions via the Windows Store or at" />
+                <InlineUIContainer>
+                    <HyperlinkButton 
+                        Style="{StaticResource FlyoutLink}"
+                        NavigateUri="http://lvl3.org" 
+                        Content="http://lvl3.org" 
+                    />
+                </InlineUIContainer>
+            </Paragraph>
+        </RichTextBlock>
+
+        <TextBlock x:Uid="ThanksLabel" Style="{StaticResource FlyoutImportant}" Text="Special thanks" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" />
+        <RichTextBlock Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Style="{StaticResource FlyoutRunRich}" >
+            <Paragraph>
+                <Run x:Uid="AboutThanks" Text="Andrew Joyce voluntarily helped to improve the UI with his beautiful designs." />
+            </Paragraph>
+        </RichTextBlock>
+
+        <TextBlock x:Uid="LegalLabel" Style="{StaticResource FlyoutImportant}" Text="Legal" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" />
+        <RichTextBlock Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Style="{StaticResource FlyoutRunRich}" >
+            <Paragraph>
+                <Run x:Uid="AboutTextStart" Text="Chat uses a fork of the the Ubiety XMPP Library which can be found at" />
+                <InlineUIContainer>
+                    <HyperlinkButton 
+                        Style="{StaticResource FlyoutLink}"
+                        NavigateUri="https://github.com/PaulFreund/xmpp" 
+                        Content="https://github.com/PaulFreund/xmpp" 
+                    />
+                </InlineUIContainer>
+            </Paragraph>
+        </RichTextBlock>
+          
+        <TextBlock x:Uid="AboutTextEnd" Style="{StaticResource FlyoutRun}" Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" Text="The Ubiety XMPP Library is released under the LGPLv3 licence and is an exchangable part of this software." />
+    </StackPanel>
+</UserControl>

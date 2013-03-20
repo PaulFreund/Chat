@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountsButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Konten</value>
+  </data>
+  <data name="AddContactButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="ContactInfoButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="FlyoutTypeAccountEdit" xml:space="preserve">
+    <value>Konto bearbeiten</value>
+  </data>
+  <data name="FlyoutTypeAccountListEdit" xml:space="preserve">
+    <value>Konten</value>
+  </data>
+  <data name="FlyoutTypeAddContact" xml:space="preserve">
+    <value>Kontakt hinzufügen</value>
+  </data>
+  <data name="FlyoutTypeEditContact" xml:space="preserve">
+    <value>Kontaktinformationen</value>
+  </data>
+  <data name="FlyoutTypeNotifications" xml:space="preserve">
+    <value>Benachrichtigungen</value>
+  </data>
+  <data name="FlyoutTypeRemoveContact" xml:space="preserve">
+    <value>Kontakt entfernen</value>
+  </data>
+  <data name="FlyoutTypeSettingsEdit" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="FlyoutTypeStatusEdit" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NotifyBackgroundAccess" xml:space="preserve">
+    <value>Die Applikation benötigt Rechte im Hintergrund ausgeführt zu werden</value>
+  </data>
+  <data name="RemoveContactButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="SettingsButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="StatusTypeAvailable" xml:space="preserve">
+    <value>Verfügbar</value>
+  </data>
+  <data name="StatusTypeAway" xml:space="preserve">
+    <value>Abwesend</value>
+  </data>
+  <data name="StatusTypeBusy" xml:space="preserve">
+    <value>Beschäftigt</value>
+  </data>
+  <data name="StatusTypeOffline" xml:space="preserve">
+    <value>Abgemeldet</value>
+  </data>
+  <data name="SubscriptionRequest" xml:space="preserve">
+    <value>möchte deinen Status verfolgen</value>
+  </data>
+  <data name="ErrorTypeUndefined" xml:space="preserve">
+    <value>Unbekannter Fehler</value>
+  </data>
+  <data name="ErrorTypeAuthenticationFailed" xml:space="preserve">
+    <value>Anmeldung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeXMPPVersionNotSupported" xml:space="preserve">
+    <value>Die Protokollversion des Servers wird nicht unterstützt</value>
+  </data>
+  <data name="ErrorTypeNoSupportedAuthenticationMethod" xml:space="preserve">
+    <value>Der Server unterstützt keine der gewählten Authentifizierungsverfahren</value>
+  </data>
+  <data name="ErrorTypeInvalidXMLFragment" xml:space="preserve">
+    <value>Fehlerhafte Daten empfangen</value>
+  </data>
+  <data name="ErrorTypeBindingToResourceFailed" xml:space="preserve">
+    <value>Registrierung am Server fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeMD5AuthError" xml:space="preserve">
+    <value>Anmeldung über MD5-Authentifizierung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeOAUTH2AuthError" xml:space="preserve">
+    <value>Anmeldung über OAUTH2-Authentifizierung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeSCRAMAuthError" xml:space="preserve">
+    <value>Anmeldung über SCRAM-Authentifizierung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypePLAINAuthError" xml:space="preserve">
+    <value>Anmeldung über Klartext-Authentifizierung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeWriteStateMismatch" xml:space="preserve">
+    <value>Versenden von Nachrichten fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeConnectToServerFailed" xml:space="preserve">
+    <value>Verbindung zum Server fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeServerDisconnected" xml:space="preserve">
+    <value>Verbindung abgebrochen</value>
+  </data>
+  <data name="ErrorTypeSocketReadInterrupted" xml:space="preserve">
+    <value>Empfang von Nachrichten unterbrochen</value>
+  </data>
+  <data name="ErrorTypeSocketWriteInterrupted" xml:space="preserve">
+    <value>Versenden von Nachrichten unterbrochen</value>
+  </data>
+  <data name="ErrorTypeInvalidSSLCertificate" xml:space="preserve">
+    <value>Das SSL-Zertifikat des Servers ist ungültig</value>
+  </data>
+  <data name="ErrorTypeSocketChangeFailed" xml:space="preserve">
+    <value>Netzwerkverbindung konnte nicht erneuert werden</value>
+  </data>
+  <data name="ErrorTypeMissingPassword" xml:space="preserve">
+    <value>Es wurde kein Passwort anegegeben</value>
+  </data>
+  <data name="ErrorTypeMissingHost" xml:space="preserve">
+    <value>Es wurde keine Serveradresse angegeben</value>
+  </data>
+  <data name="ErrorTypeMissingJID" xml:space="preserve">
+    <value>Es wurde keine Jabber-ID anegegeben</value>
+  </data>
+  <data name="ErrorTypeNoInternet" xml:space="preserve">
+    <value>Keine Verbindung zum Internet</value>
+  </data>
+  <data name="ErrorTypeNoHardwareSlotsAllowed" xml:space="preserve">
+    <value>Keine Berechtigung für Connected Standby</value>
+  </data>
+  <data name="ErrorTypeWaitForPushEnabled" xml:space="preserve">
+    <value>Netzwerkverbindung konnte nicht hergestellt werden</value>
+  </data>
+  <data name="ErrorTypeBackgroundTaskCreate" xml:space="preserve">
+    <value>Programm konnte nicht ordnungsgemäß gestartet werden</value>
+  </data>
+  <data name="ErrorTypeRegisterSystemEvents" xml:space="preserve">
+    <value>Registrieren der Applikation am System fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeUnregisterSystemEvents" xml:space="preserve">
+    <value>Abmelden der Applikation vom System fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeRegisterControlChannel" xml:space="preserve">
+    <value>Registrieren der Netzwerkverbindung am System fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeUnregisterControlChannel" xml:space="preserve">
+    <value>Abmelden der Netzwerkverbindung vom System fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeRequestBackgroundAccess" xml:space="preserve">
+    <value>Rechte zur Ausführung im Hintergrund konnten nicht angefordert werden</value>
+  </data>
+  <data name="ErrorTypeInvalidJID" xml:space="preserve">
+    <value>Ungültige Jabber-ID</value>
+  </data>
+  <data name="ErrorTypeInvalidHostname" xml:space="preserve">
+    <value>Ungültige Serveradresse</value>
+  </data>
+  <data name="ErrorTypeInvalidConnectionId" xml:space="preserve">
+    <value>Interne Kontenzuordnung fehlgeschlagen</value>
+  </data>
+  <data name="ErrorTypeNotConnected" xml:space="preserve">
+    <value>Nicht verbunden</value>
+  </data>
+  <data name="ErrorTypeServerError" xml:space="preserve">
+    <value>Der Server hat die Verbindung abgebrochen</value>
+  </data>
+  <data name="ErrorTagIq" xml:space="preserve">
+    <value>Fehler in Serverantwort</value>
+  </data>
+  <data name="ErrorTagMessage" xml:space="preserve">
+    <value>Fehler in Nachricht</value>
+  </data>
+  <data name="ErrorTagPresence" xml:space="preserve">
+    <value>Fehler in Statusnachricht</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Unbekannter Fehler</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ErrorPreviousDisabled" xml:space="preserve">
+    <value>Das Konto wurde aufgrund eines früheren Fehlers vorübergehend deaktiviert</value>
+  </data>
+  <data name="SubscriptionAllowed" xml:space="preserve">
+    <value>hat dir erlaubt seinen Status zu verfolgen</value>
+  </data>
+  <data name="SubscriptionRevoked" xml:space="preserve">
+    <value>hat deine Erlaubnis seinem Status zu folgen zurückgezogen</value>
+  </data>
+  <data name="SubscriptionUnsubscribed" xml:space="preserve">
+    <value>hat aufgehört deinen Status zu verfolgen</value>
+  </data>
+  <data name="ButtonAccountListEdit.Content" xml:space="preserve">
+    <value>Konten bearbeiten</value>
+  </data>
+  <data name="FlyoutTypeCloseApplication" xml:space="preserve">
+    <value>Probleme lösen</value>
+  </data>
+  <data name="FlyoutTypeSubscription" xml:space="preserve">
+    <value>Verknüpfung</value>
+  </data>
+  <data name="ButtonSubscription.Content" xml:space="preserve">
+    <value>Verknüpfung bearbeiten</value>
+  </data>
+  <data name="NotificationTypeError" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="NotificationTypeInformative" xml:space="preserve">
+    <value>Benachrichtigung</value>
+  </data>
+  <data name="NotificationTypeRequest" xml:space="preserve">
+    <value>Anfrage</value>
+  </data>
+  <data name="FlyoutTypeAbout" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="FlyoutTypeDeleteData" xml:space="preserve">
+    <value>Daten löschen</value>
+  </data>
+  <data name="DeleteAccountMessage" xml:space="preserve">
+    <value>Sind Sie sicher das sie das Konto löschen wollen?</value>
+  </data>
+  <data name="MessageBoxNo" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="MessageBoxYes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="DeleteAllDataMessage" xml:space="preserve">
+    <value>Sind Sie sicher das sie alle Einstellungen und Daten des Programms zurücksetzen wollen?</value>
+  </data>
+  <data name="ButtonCloseApplication.Content" xml:space="preserve">
+    <value>Probleme lösen</value>
+  </data>
+  <data name="AboutAuthor.Text" xml:space="preserve">
+    <value>Chat wurde programmiert von Paul Freund - LVL3 Solutions. Fragen und Anregungen sind erwünscht, entweder über den Windows Store oder unter </value>
+  </data>
+  <data name="AboutTextEnd.Text" xml:space="preserve">
+    <value>Die Ubiety XMPP Bibliothek ist unter der LGPLv3 Lizenz veröffentlicht und ist ein austauschbarer Bestandteil dieser Software.</value>
+  </data>
+  <data name="AboutTextStart.Text" xml:space="preserve">
+    <value>Chat verwendet eine abgewandelte Form der Ubiety XMPP Bibliothek , zu finden unter</value>
+  </data>
+  <data name="AccountEditSwitchConnectedStandby.Header" xml:space="preserve">
+    <value>Connected Standby aktivieren</value>
+  </data>
+  <data name="AccountEditSwitchMD5.Header" xml:space="preserve">
+    <value>Anmeldung über MD5 erlauben</value>
+  </data>
+  <data name="AccountEditSwitchOldStyleSSL.Header" xml:space="preserve">
+    <value>Alte SSL Methode</value>
+  </data>
+  <data name="AccountEditSwitchPlain.Header" xml:space="preserve">
+    <value>Unverschlüsselte Anmeldung erlauben</value>
+  </data>
+  <data name="AccountEditSwitchSCRAM.Header" xml:space="preserve">
+    <value>Anmeldung über SCRAM erlauben</value>
+  </data>
+  <data name="AccountEditSwitchUseSSL.Header" xml:space="preserve">
+    <value>Sichere Verbindung über SSL</value>
+  </data>
+  <data name="AddContactLabelAccount.Text" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="AuthorLabel.Text" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="ButtonAdd.Content" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="ButtonCancel.Content" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="ButtonDeleteAccounts.Content" xml:space="preserve">
+    <value>Alle Konten löschen</value>
+  </data>
+  <data name="ButtonDeleteAll.Content" xml:space="preserve">
+    <value>Alle Programmdaten Löschen</value>
+  </data>
+  <data name="ButtonDeleteAvatars.Content" xml:space="preserve">
+    <value>Benutzerbilder löschen</value>
+  </data>
+  <data name="ButtonDeleteRoster.Content" xml:space="preserve">
+    <value>Lokale Kontaktliste leeren</value>
+  </data>
+  <data name="ButtonDeleteSettings.Content" xml:space="preserve">
+    <value>Einstellungen zurücksetzten</value>
+  </data>
+  <data name="ButtonHide.Content" xml:space="preserve">
+    <value>Verstecken</value>
+  </data>
+  <data name="ButtonNo.Content" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="ButtonSave.Content" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="ButtonYes.Content" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="CloseApplicationDescription.Text" xml:space="preserve">
+    <value>Es gab einen schwerwiegenden Programmfehler und das Programm muss höchstwarscheinlich neu gestartet werden. Sie können versuchen, die Rechte für die Hintergrundausführung zu beantragen, sollte dies nicht helfen, verschen sie manuell die Rechte des Programms zu überprüfen. Falls der Fehler unabhängig davon bestehen bleibt sollten sie gegebenenfalls Hilfe suchen.</value>
+  </data>
+  <data name="ColorPickerLime.Text" xml:space="preserve">
+    <value>Lime</value>
+  </data>
+  <data name="ColorPickerMango.Text" xml:space="preserve">
+    <value>Mango</value>
+  </data>
+  <data name="ColorPickerPink.Text" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="ColorPickerSky.Text" xml:space="preserve">
+    <value>Sky</value>
+  </data>
+  <data name="ColorPickerTurquoise.Text" xml:space="preserve">
+    <value>Turquoise</value>
+  </data>
+  <data name="ConnectedStandbyDescription.Text" xml:space="preserve">
+    <value>Dieses Programm unterstützt die "Connected Standby" Funktion. Die aktuelle Regelung erlaubt es nur den ersten 3 "Lock screen" Applikationen diesen Modus mit maximal 2 Verbindungen zu verwenden. Connected Standby für mehr als 2 Konten zu aktivieren kann zu Fehlern führen!</value>
+  </data>
+  <data name="DeleteDataDescription.Text" xml:space="preserve">
+    <value>Falls sie keine privaten Daten hinterlassen wollen oder falls das Programm aufgehört hat ordnungsgemäß zu funktionieren können sie hier die Daten zurücksetzten. Nach dem Löschvorgang muss die Applikation geschlossen und manuell neu gestartet werden.</value>
+  </data>
+  <data name="FormInvalidWarning.Text" xml:space="preserve">
+    <value>Bitte tragen sie alle nötigen Informationen ein!</value>
+  </data>
+  <data name="ImportantLabel.Text" xml:space="preserve">
+    <value>Wichtig</value>
+  </data>
+  <data name="LabelAlias.Text" xml:space="preserve">
+    <value>Spitzname</value>
+  </data>
+  <data name="LabelColor.Text" xml:space="preserve">
+    <value>Farbe</value>
+  </data>
+  <data name="LabelHost.Text" xml:space="preserve">
+    <value>Serveradresse (Domain oder IP)</value>
+  </data>
+  <data name="LabelJID.Text" xml:space="preserve">
+    <value>Jabber-ID (JID) im Format user@server.tld</value>
+  </data>
+  <data name="LabelPassword.Text" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="LabelPort.Text" xml:space="preserve">
+    <value>Serverport (Standard 5222)</value>
+  </data>
+  <data name="LabelTitle.Text" xml:space="preserve">
+    <value>Kontoname</value>
+  </data>
+  <data name="LegalLabel.Text" xml:space="preserve">
+    <value>Rechtliches</value>
+  </data>
+  <data name="RemoveContactText.Text" xml:space="preserve">
+    <value>Kontakt löschen</value>
+  </data>
+  <data name="ButtonRequestBackgroundAccess.Content" xml:space="preserve">
+    <value>Recht beantragen</value>
+  </data>
+  <data name="ButtonAllow.Content" xml:space="preserve">
+    <value>Annehmen</value>
+  </data>
+  <data name="ButtonAllowAdd.Content" xml:space="preserve">
+    <value>Annehmen &amp; Hinzufügen</value>
+  </data>
+  <data name="ButtonDeleteData.Content" xml:space="preserve">
+    <value>Daten löschen</value>
+  </data>
+  <data name="ButtonDeny.Content" xml:space="preserve">
+    <value>Ablehnen</value>
+  </data>
+  <data name="ButtonRemoveContact.Content" xml:space="preserve">
+    <value>Kontakt löschen</value>
+  </data>
+  <data name="ButtonReRequest.Content" xml:space="preserve">
+    <value>Anfrage (erneut) versenden</value>
+  </data>
+  <data name="ButtonSetAvatar.Content" xml:space="preserve">
+    <value>Avatar ändern</value>
+  </data>
+  <data name="ButtonTextAccountListEdit" xml:space="preserve">
+    <value>Konten bearbeiten</value>
+  </data>
+  <data name="ButtonTextCloseApplication" xml:space="preserve">
+    <value>Probleme lösen</value>
+  </data>
+  <data name="ButtonTextSubscription" xml:space="preserve">
+    <value>Verknüpfung bearbeiten</value>
+  </data>
+  <data name="ConversationAccountOfflineWarning.Text" xml:space="preserve">
+    <value>Ihr Konto ist nicht verbunden, es können keine Nachrichten gesendet werden</value>
+  </data>
+  <data name="ConversationContactOfflineWarning.Text" xml:space="preserve">
+    <value>Der Kontakt abgemeldet, Nachrichten könnten verloren gehen</value>
+  </data>
+  <data name="LabelAutoAwayMessage" xml:space="preserve">
+    <value>Nachricht bei autom. Abwesenheit</value>
+  </data>
+  <data name="SettingsAcousticNotifications.Header" xml:space="preserve">
+    <value>Akustische Benachrichtigungen</value>
+  </data>
+  <data name="SettingsAcousticNotificationsDescription.Text" xml:space="preserve">
+    <value>Chat verwendet den Windows Ton "Instant Message Notification". Dieser kann in der Systemsteuerung unter Sound eingestellt werden</value>
+  </data>
+  <data name="SettingsAllowUnknown.Header" xml:space="preserve">
+    <value>Nachrichten von unbekannten annehmen</value>
+  </data>
+  <data name="SettingsAutoAway.Header" xml:space="preserve">
+    <value>Automatisch abwesend</value>
+  </data>
+  <data name="SettingsAutoDownloadAvatars.Header" xml:space="preserve">
+    <value>Benutzerbilder herunterladen</value>
+  </data>
+  <data name="SettingsAutoScrollRoster.Header" xml:space="preserve">
+    <value>Kontaktliste automatisch scrollen</value>
+  </data>
+  <data name="SettingsAutoSortRoster.Header" xml:space="preserve">
+    <value>Kontaktliste sortieren</value>
+  </data>
+  <data name="SettingsInvertOwnMessages.Header" xml:space="preserve">
+    <value>Meine Nachrichten invertieren</value>
+  </data>
+  <data name="SettingsNotifications.Header" xml:space="preserve">
+    <value>Benachrichtigungen aktivieren</value>
+  </data>
+  <data name="SettingsNotificationsVisible.Header" xml:space="preserve">
+    <value>Benachrichtigungen anzeigen wenn Programm im Vordergrund</value>
+  </data>
+  <data name="SettingsShowOffline.Header" xml:space="preserve">
+    <value>Offline Kontakte anzeigen</value>
+  </data>
+  <data name="SettingsStickyRosterContacts.Header" xml:space="preserve">
+    <value>Letzte Kontakte am Anfang der Kontaktliste</value>
+  </data>
+  <data name="SSLWarning.Text" xml:space="preserve">
+    <value>Achtung, Windows 8 erlaubt keine selbst signierten Zertifikate!</value>
+  </data>
+  <data name="StatusEditLabelAvatar.Text" xml:space="preserve">
+    <value>Benutzerbild</value>
+  </data>
+  <data name="StatusEditLabelStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StatusEditLabelStatusMessage.Text" xml:space="preserve">
+    <value>Stausnachricht</value>
+  </data>
+  <data name="StatusTypeAvailableLabel.Text" xml:space="preserve">
+    <value>Verfügbar</value>
+  </data>
+  <data name="StatusTypeAwayLabel.Text" xml:space="preserve">
+    <value>Abwesend</value>
+  </data>
+  <data name="StatusTypeBusyLabel.Text" xml:space="preserve">
+    <value>Beschäftigt</value>
+  </data>
+  <data name="StatusTypeOfflineLabel.Text" xml:space="preserve">
+    <value>Abgemeldet</value>
+  </data>
+  <data name="SubscriptionFromAccountText.Text" xml:space="preserve">
+    <value> des Kontos </value>
+  </data>
+  <data name="SubscriptionNotAuthorizedText.Text" xml:space="preserve">
+    <value>hat Sie (noch) nicht als Kontakt bestätigt.</value>
+  </data>
+  <data name="SubscriptionNotSubscribedText.Text" xml:space="preserve">
+    <value> hat Sie nicht zu seiner Kontaktliste hinzugefügt</value>
+  </data>
+  <data name="SubscriptionRequestText.Text" xml:space="preserve">
+    <value> will dich zu seiner Kontaktliste hinzufügen</value>
+  </data>
+  <data name="SubscriptionTheContactText.Text" xml:space="preserve">
+    <value>Der Kontakt </value>
+  </data>
+  <data name="NewNotificationSingle" xml:space="preserve">
+    <value>Neue Benachrichtigung</value>
+  </data>
+  <data name="NewNotificationsMulti" xml:space="preserve">
+    <value>Neue Benachrichtigungen</value>
+  </data>
+  <data name="NoAccountsOverlayText.Text" xml:space="preserve">
+    <value>Bitte verwenden Sie die Applikationsleiste um neue Konten hinzuzufügen. Bei Fragen, Anregungen oder Problemen besuchen sie</value>
+  </data>
+  <data name="AccountListCountWarning.Text" xml:space="preserve">
+    <value>Windows erlaubt nur 5 gleichzeitige Verbindungen im Hintergrund</value>
+  </data>
+  <data name="AddFacebookAccountMessage" xml:space="preserve">
+    <value>Um sich bei einem Facebook Konto anzumelden benötigt man die passenden Zugangsdaten, wie Sie diese bekommen erfahren Sie unter http://www.facebook.com/sitetour/chat.php</value>
+  </data>
+  <data name="MessageBoxOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ErrorTypeInvalidSettings" xml:space="preserve">
+    <value>Die Einstellungen des Kontos sind fehlerhaft</value>
+  </data>
+  <data name="SettingsShowInformativeErrors.Header" xml:space="preserve">
+    <value>Nicht kritische Fehler anzeigen</value>
+  </data>
+  <data name="ButtonExtendedSettings.Content" xml:space="preserve">
+    <value>Erweiterte Einstellungen</value>
+  </data>
+  <data name="PrivacyLink" xml:space="preserve">
+    <value>http://lvl3.org/de/chatprivacy/</value>
+  </data>
+  <data name="PrivacyPolicyTitle" xml:space="preserve">
+    <value>Datenschutzerklärung</value>
+  </data>
+  <data name="SettingsInvertInterface.Header" xml:space="preserve">
+    <value>Kontaktliste rechts</value>
+  </data>
+  <data name="AboutThanks.Text" xml:space="preserve">
+    <value>Andrew Joyce hat mit seinen Entwürfen unentgeltlich geholfen die Oberfläche von Chat zu verschönern.</value>
+  </data>
+  <data name="NoAccountsOverlayWelcome.Text" xml:space="preserve">
+    <value>Willkommen bei Chat</value>
+  </data>
+  <data name="ThanksLabel.Text" xml:space="preserve">
+    <value>Danksagung</value>
+  </data>
+  <data name="FlyoutTypeThemeEdit" xml:space="preserve">
+    <value>Darstellung</value>
+  </data>
+  <data name="ColorContent.Text" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="ColorFrame.Text" xml:space="preserve">
+    <value>Rahmen</value>
+  </data>
+  <data name="ColorContactList.Text" xml:space="preserve">
+    <value>Kontaktliste</value>
+  </data>
+  <data name="ColorHighlight.Text" xml:space="preserve">
+    <value>Hervorhebungen</value>
+  </data>
+  <data name="ColorStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ColorForeground.ColorName" xml:space="preserve">
+    <value>Vordergrund</value>
+  </data>
+  <data name="ColorBackground.ColorName" xml:space="preserve">
+    <value>Hintergrund</value>
+  </data>
+  <data name="ColorSecondary.ColorName" xml:space="preserve">
+    <value>Abtrennung</value>
+  </data>
+  <data name="ColorPopout.ColorName" xml:space="preserve">
+    <value>Hervorhebung</value>
+  </data>
+  <data name="ColorEnabled.ColorName" xml:space="preserve">
+    <value>Aktiviert</value>
+  </data>
+  <data name="ColorDisabled.ColorName" xml:space="preserve">
+    <value>Deaktiviert</value>
+  </data>
+  <data name="ColorSelection.ColorName" xml:space="preserve">
+    <value>Ausgewählt</value>
+  </data>
+  <data name="ColorImportant.ColorName" xml:space="preserve">
+    <value>Wichtig</value>
+  </data>
+  <data name="ColorWarning.ColorName" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="ColorRequest.ColorName" xml:space="preserve">
+    <value>Anfrage</value>
+  </data>
+  <data name="ColorAvailable.ColorName" xml:space="preserve">
+    <value>Verfügbar</value>
+  </data>
+  <data name="ColorAway.ColorName" xml:space="preserve">
+    <value>Abwesend</value>
+  </data>
+  <data name="ColorDnd.ColorName" xml:space="preserve">
+    <value>Beschäftigt</value>
+  </data>
+  <data name="ColorOffline.ColorName" xml:space="preserve">
+    <value>Abgemeldet</value>
+  </data>
+  <data name="ThemeEditDescription.Text" xml:space="preserve">
+    <value>Die Farben können in der hexadezimalen Darstellung bearbeitet werden. Nach der Raute stehen je 2 Zeichen für einen Farbkanal. Der erste Kanal ist die Transparenz, danach kommen Rot, Grün und Blau</value>
+  </data>
+  <data name="ButtonReset.Content" xml:space="preserve">
+    <value>Zurücksetzen auf Standard</value>
+  </data>
+  <data name="AccountStateWarning.Text" xml:space="preserve">
+    <value>Mindestens ein Konto ist nicht korrekt verbunden</value>
+  </data>
+  <data name="NoAccountsOverlayFacebook.Text" xml:space="preserve">
+    <value>. Wenn Sie ein Facebook Konto benötigen, besuchen sie</value>
+  </data>
+  <data name="NoAccountsOverlayGoogle.Text" xml:space="preserve">
+    <value>Wenn Sie ein Google Talk Konto benötigen, besuchen sie</value>
+  </data>
+  <data name="NoAccountsOverlayXMPP.Text" xml:space="preserve">
+    <value>. Für ein XMPP/Jabber Konto bitten wir Sie einen Anbieter zu suchen der am besten Ihren Bedürfnissen entspricht.</value>
+  </data>
+</root>

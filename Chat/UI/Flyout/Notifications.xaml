@@ -1,0 +1,83 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    x:Class="Chat.UI.Flyout.Notifications"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Flyout"
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="646"
+    d:designHeight="614"
+>
+    
+    <UserControl.Resources>
+        <converter:NotificationTypeToColor x:Name="TypeToColor" />
+        <converter:NotificationTypeToText x:Name="TypeToText" />
+        <converter:AccountJIDToTitleConverter x:Name="JIDToTitle" />
+        <converter:NotificationToButtonVisibility x:Name="NotificationToButtonVisibility" />
+        <converter:NotificationToButtonText x:Name="NotificationToButtonText" />
+        
+    </UserControl.Resources>
+
+        <ListView 
+            x:Name="NotificationList"
+            ItemsSource="{Binding}" 
+            SelectionMode="None"  
+            HorizontalContentAlignment="Stretch" 
+            HorizontalAlignment="Stretch" 
+            VerticalContentAlignment="Top" 
+            ItemContainerStyle="{StaticResource SimpleListViewItemStyle}"
+        >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="{Binding Type, Converter={StaticResource TypeToColor}}" Margin="0,10,0,0">
+                        <Grid Margin="0,4,0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource FlyoutLabel}" Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}" Text="{Binding Type, Converter={StaticResource TypeToText}}" TextWrapping="Wrap" FontWeight="SemiBold"/>
+                        <TextBlock Style="{StaticResource FlyoutLabel}" Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}" Text="{Binding Account, Converter={StaticResource JIDToTitle}}" TextWrapping="Wrap" Grid.Column="2" FontWeight="SemiBold"/>
+                        </Grid>
+
+                    <TextBlock Style="{StaticResource FlyoutRun}" Text="{Binding Message}" TextWrapping="Wrap" Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}" Margin="6,0,6,0"/>
+                    <TextBlock Style="{StaticResource FlyoutRun}" Text="{Binding Details}" TextWrapping="Wrap" Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}" Margin="6,0,6,0" FontStyle="Italic"/>
+                        
+                        <StackPanel Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal" Grid.ColumnSpan="3" Margin="6">
+                            <Button x:Uid="ButtonHide" Tag="{Binding}" Background="#FFB6B6B6" Content="Hide" Click="OnHide"/> 
+                            <Button Tag="{Binding}" Background="#FFB6B6B6" Visibility="{Binding Converter={StaticResource NotificationToButtonVisibility}}" Content="{Binding Converter={StaticResource NotificationToButtonText}}" Click="OnAction"/>
+                        </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+</UserControl>

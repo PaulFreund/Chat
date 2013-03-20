@@ -1,0 +1,3 @@
+[submodule "XMPP"]
+	path = XMPP
+	url = https://github.com/PaulFreund/xmpp.git

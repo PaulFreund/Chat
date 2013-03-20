@@ -1,0 +1,224 @@
+﻿<!-- ################################################################################################
+
+    Copyright (c) since 2012 - Paul Freund 
+    
+    Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following
+    conditions:
+    
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+    OTHER DEALINGS IN THE SOFTWARE.
+
+#################################################################################################### -->
+    
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    x:Class="Chat.UI.Controls.Conversation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chat.UI.Controls"
+    xmlns:common="using:Chat.Common"
+    xmlns:converter ="using:Chat.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="768"
+    d:DesignWidth="600"
+    >
+    
+    <Grid>
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="65" MaxHeight="120"/> 
+        </Grid.RowDefinitions>
+            <ListView 
+                x:Name="ItemList" 
+                ItemsSource="{Binding Items}" 
+                SelectionMode="None" 
+                ItemContainerStyle="{StaticResource SimpleListViewItemStyle}" 
+                HorizontalContentAlignment="Stretch" 
+                VerticalContentAlignment="Bottom" 
+                VerticalAlignment="Bottom" 
+                RenderTransformOrigin="0.5,0.5"  
+            >
+            <ListView.RenderTransform>
+                <CompositeTransform ScaleY="-1"/>
+            </ListView.RenderTransform>
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                            Margin="0,20,0,30" 
+                            FlowDirection="{Binding Sender, Converter={StaticResource MessageFlowDirectionChooser}}" 
+                            RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Grid.RenderTransform>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="8*" MaxWidth="60" MinWidth="32"/>
+                            <ColumnDefinition Width="80*" />
+                            <ColumnDefinition Width="8*" MaxWidth="60" MinWidth="32"/>
+                            <ColumnDefinition Width="2*" /> 
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" MaxHeight="60"  MinHeight="32"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                            <Border Grid.Column="1" BorderThickness="0,0,0,0" Margin="0,7,0,0">
+                                <local:AvatarControl 
+                                    VerticalAlignment="Top" 
+                                    MaxWidth="60" 
+                                    MinWidth="32" 
+                                    Loaded="OnImageLoaded" 
+                                    FlowDirection="LeftToRight" 
+                                    AvatarImage="{Binding Sender, Converter={StaticResource JIDToImageConverter}}"
+                                />
+                            </Border>
+
+                            <Border Grid.Column="2" BorderBrush="{Binding ContentSecondary, Source={StaticResource AppColors}}" BorderThickness="0,1,0,0" Margin="0,7,0,0" Grid.RowSpan="2">
+                                <ListView 
+                                    Margin="15,15,15,15" 
+                                    ItemsSource="{Binding Messages}"  
+                                    SelectionMode="None"  
+                                    ItemContainerStyle="{StaticResource SimpleListViewItemStyle}"  
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"  
+                                    VerticalAlignment="Top" 
+                                >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>                                       
+                                            <TextBlock 
+                                                Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" 
+                                                FontSize="16" 
+                                                Text="{Binding Body}" 
+                                                TextWrapping="Wrap" 
+                                                FlowDirection="LeftToRight" 
+                                                IsTextSelectionEnabled="True" 
+                                            />
+                                    </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Border>
+
+                            <Border Grid.Column="3">
+                                <TextBlock FlowDirection="LeftToRight" Text="{Binding Timestamp, Converter={StaticResource DateTimeToTextConverter}}" FontSize="12" Foreground="{Binding ContentSecondary, Source={StaticResource AppColors}}" VerticalAlignment="Top" TextAlignment="Center" FontStretch="Undefined" TextWrapping="Wrap" />
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        <!--</ScrollViewer>-->
+
+        <TextBlock 
+            x:Name="AccountOfflineWarning" 
+            x:Uid="ConversationAccountOfflineWarning" 
+            Grid.Row="1" 
+            Text="Your account is not connected, messages can not be sent" 
+            HorizontalAlignment="Center" 
+            FontFamily="Segoe UI Semilight" 
+            FontSize="16" 
+            Foreground="{Binding ContentPopout, Source={StaticResource AppColors}}" 
+            Margin="0,5" 
+            Visibility="Collapsed" 
+            TextWrapping="Wrap" 
+        />
+        
+        <TextBlock 
+            x:Name="ContactOfflineWarning" 
+            x:Uid="ConversationContactOfflineWarning" 
+            Grid.Row="1" 
+            Text="The contact is offline, messages might not be delivered" 
+            HorizontalAlignment="Center" 
+            FontFamily="Segoe UI Semilight" 
+            FontSize="16" 
+            Foreground="{Binding ContentPopout, Source={StaticResource AppColors}}" 
+            Margin="0,5" 
+            Visibility="Collapsed" 
+            TextWrapping="Wrap" 
+        />
+        
+        <Border Grid.Row="2" Background="{Binding ContentSecondary, Source={StaticResource AppColors}}">
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox 
+                    x:Name="SendText" 
+                    Grid.Column="0" 
+                    MinHeight="46" 
+                    MaxHeight="120"  
+                    TextWrapping="Wrap" 
+                    HorizontalContentAlignment="Stretch" 
+                    VerticalContentAlignment="Stretch" 
+                    KeyDown="SendText_KeyDown" 
+                    MaxLength="3000" 
+                    FontSize="16" 
+                    BorderThickness="0" 
+                    Padding="20,12" 
+                    BorderBrush="{x:Null}"
+                    Background="{Binding ContentBackground, Source={StaticResource AppColors}}"
+                    Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}"
+                />
+
+                <!--<Button  
+                    x:Name="EmoteButton" 
+                    Margin="20,0,0,0" 
+                    Grid.Column="1" 
+                    Width="40" 
+                    Height="40" 
+                    Click="OnEmoteButton" 
+                    BorderBrush="{x:Null}" 
+                    Background="{x:Null}" 
+                    Padding="0" 
+                    BorderThickness="0" 
+                    HorizontalAlignment="Stretch">
+                    <Button.Content>
+                        <Rectangle Height="40" Width="40" Fill="{Binding ButtonEmoteBG, Source={StaticResource AppColors}}" Margin="-3,-3,-3,-3" />
+                    </Button.Content>
+                </Button>-->
+
+                <!--<Border Background="Red" ></Border>-->
+                
+                <Button  
+                    Style="{StaticResource SimpleButton}"
+                    Content="&#xE269;"
+                    Foreground="{Binding HighlightForeground, Source={StaticResource AppColors}}"
+                    Background="{Binding ContentEnabled, Source={StaticResource AppColors}}"
+                    x:Name="SendButton" 
+                    Margin="20,0,0,0" 
+                    Grid.Column="2" 
+                    Click="OnSendButton" 
+                    Width="40"
+                    Height="40" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" 
+                    Padding="0,-1,0,0" 
+                    BorderThickness="0" 
+                    FontFamily="Segoe UI Symbol" FontSize="24" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Stretch"
+                >
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleY="-1" ScaleX="-1"/>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
+<!--&#x2261;-->
