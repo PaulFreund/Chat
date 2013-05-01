@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountsButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Hesaplar</value>
+  </data>
+  <data name="AddContactButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="ContactInfoButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="FlyoutTypeAccountEdit" xml:space="preserve">
+    <value>Hesap düzenle</value>
+  </data>
+  <data name="FlyoutTypeAccountListEdit" xml:space="preserve">
+    <value>Hesaplar</value>
+  </data>
+  <data name="FlyoutTypeAddContact" xml:space="preserve">
+    <value>Kişi ekle</value>
+  </data>
+  <data name="FlyoutTypeEditContact" xml:space="preserve">
+    <value>İletişim bilgileri</value>
+  </data>
+  <data name="FlyoutTypeNotifications" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
+  <data name="FlyoutTypeRemoveContact" xml:space="preserve">
+    <value>Kişiyi sil</value>
+  </data>
+  <data name="FlyoutTypeSettingsEdit" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="FlyoutTypeStatusEdit" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="NotifyBackgroundAccess" xml:space="preserve">
+    <value>Uygulama arkaplanda çalışabilir</value>
+  </data>
+  <data name="RemoveContactButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="SettingsButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="StatusTypeAvailable" xml:space="preserve">
+    <value>Uygun</value>
+  </data>
+  <data name="StatusTypeAway" xml:space="preserve">
+    <value>Dışarıda</value>
+  </data>
+  <data name="StatusTypeBusy" xml:space="preserve">
+    <value>Meşgul</value>
+  </data>
+  <data name="StatusTypeOffline" xml:space="preserve">
+    <value>Çıkış yapıldı</value>
+  </data>
+  <data name="SubscriptionRequest" xml:space="preserve">
+    <value>durumunuzu takip etmek istiyor</value>
+  </data>
+  <data name="ErrorTypeUndefined" xml:space="preserve">
+    <value>Bilinmeyen hata</value>
+  </data>
+  <data name="ErrorTypeAuthenticationFailed" xml:space="preserve">
+    <value>Oturum açma işlemi başarısız</value>
+  </data>
+  <data name="ErrorTypeXMPPVersionNotSupported" xml:space="preserve">
+    <value>Sunucunun protokol sürümü desteklenmiyor</value>
+  </data>
+  <data name="ErrorTypeNoSupportedAuthenticationMethod" xml:space="preserve">
+    <value>Belirtilen Kimlik doğrulama yöntemlerinin hiçbiri sunucu tarafından desteklenmemektedir</value>
+  </data>
+  <data name="ErrorTypeInvalidXMLFragment" xml:space="preserve">
+    <value>Alınan geçersiz veri</value>
+  </data>
+  <data name="ErrorTypeBindingToResourceFailed" xml:space="preserve">
+    <value>Sunucu bağlantı hatası</value>
+  </data>
+  <data name="ErrorTypeMD5AuthError" xml:space="preserve">
+    <value>MD5-Kimlik Doğrulama ile giriş başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeOAUTH2AuthError" xml:space="preserve">
+    <value>OAuth2-Kimlik Doğrulama ile giriş başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeSCRAMAuthError" xml:space="preserve">
+    <value>SCRAM-Authentification ile giriş başarısız oldu</value>
+  </data>
+  <data name="ErrorTypePLAINAuthError" xml:space="preserve">
+    <value>Düz Metin-Authentification ile giriş başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeWriteStateMismatch" xml:space="preserve">
+    <value>Mesaj gönderme işlemi başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeConnectToServerFailed" xml:space="preserve">
+    <value>Sunucu ile bağlantı sağlanamadı</value>
+  </data>
+  <data name="ErrorTypeServerDisconnected" xml:space="preserve">
+    <value>Sunucu ile bağlantı kesildi</value>
+  </data>
+  <data name="ErrorTypeSocketReadInterrupted" xml:space="preserve">
+    <value>Mesaj alma kesildi</value>
+  </data>
+  <data name="ErrorTypeSocketWriteInterrupted" xml:space="preserve">
+    <value>Mesaj gönderme kesildi</value>
+  </data>
+  <data name="ErrorTypeInvalidSSLCertificate" xml:space="preserve">
+    <value>Sunucunun SSL sertifikası geçersiz</value>
+  </data>
+  <data name="ErrorTypeSocketChangeFailed" xml:space="preserve">
+    <value>Yeniden bağlanma başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeMissingPassword" xml:space="preserve">
+    <value>Parola belirtilmedi</value>
+  </data>
+  <data name="ErrorTypeMissingHost" xml:space="preserve">
+    <value>Sunucu adresi belirtilmedi</value>
+  </data>
+  <data name="ErrorTypeMissingJID" xml:space="preserve">
+    <value>Jabber-ID belirtilmedi</value>
+  </data>
+  <data name="ErrorTypeNoInternet" xml:space="preserve">
+    <value>İnternet bağlantısı yok</value>
+  </data>
+  <data name="ErrorTypeNoHardwareSlotsAllowed" xml:space="preserve">
+    <value>Uykuda bağlı kalma izinleri eksik</value>
+  </data>
+  <data name="ErrorTypeWaitForPushEnabled" xml:space="preserve">
+    <value>Ağ bağlantısı problemi</value>
+  </data>
+  <data name="ErrorTypeBackgroundTaskCreate" xml:space="preserve">
+    <value>Uygulama başlama hatası</value>
+  </data>
+  <data name="ErrorTypeRegisterSystemEvents" xml:space="preserve">
+    <value>Windows uygulama kaydı başarısız</value>
+  </data>
+  <data name="ErrorTypeUnregisterSystemEvents" xml:space="preserve">
+    <value>Windows uygulama kaydı başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeRegisterControlChannel" xml:space="preserve">
+    <value>Windows ağ kaydı başarısız</value>
+  </data>
+  <data name="ErrorTypeUnregisterControlChannel" xml:space="preserve">
+    <value>Windows ağ kaydı başarısız oldu</value>
+  </data>
+  <data name="ErrorTypeRequestBackgroundAccess" xml:space="preserve">
+    <value>Arkaplanda çalışmak için izin verilmedi</value>
+  </data>
+  <data name="ErrorTypeInvalidJID" xml:space="preserve">
+    <value>Geçersiz Jabber-ID</value>
+  </data>
+  <data name="ErrorTypeInvalidHostname" xml:space="preserve">
+    <value>Geçersiz sunucu adresi</value>
+  </data>
+  <data name="ErrorTypeInvalidConnectionId" xml:space="preserve">
+    <value>Dahili hesap hatası</value>
+  </data>
+  <data name="ErrorTypeNotConnected" xml:space="preserve">
+    <value>Bağlı değil</value>
+  </data>
+  <data name="ErrorTypeServerError" xml:space="preserve">
+    <value>Sunucu bağlantısı kapandı</value>
+  </data>
+  <data name="ErrorTagIq" xml:space="preserve">
+    <value>Sunucu yanıtı hatası</value>
+  </data>
+  <data name="ErrorTagMessage" xml:space="preserve">
+    <value>İleti hatası</value>
+  </data>
+  <data name="ErrorTagPresence" xml:space="preserve">
+    <value>Protokol hatası</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Bilinmeyen bir hata oluştu</value>
+  </data>
+  <data name="NewNotificationsMulti" xml:space="preserve">
+    <value>Yeni bildirimler</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="ErrorPreviousDisabled" xml:space="preserve">
+    <value>Çünkü bir önceki hatada, hesap geçici olarak devre dışı bırakıldı</value>
+  </data>
+  <data name="SubscriptionAllowed" xml:space="preserve">
+    <value>durumunu izlemek için izin</value>
+  </data>
+  <data name="SubscriptionRevoked" xml:space="preserve">
+    <value>durum aboneliği reddetti</value>
+  </data>
+  <data name="SubscriptionUnsubscribed" xml:space="preserve">
+    <value>Durum takibi durdu</value>
+  </data>
+  <data name="FlyoutTypeCloseApplication" xml:space="preserve">
+    <value>Sorunları çöz</value>
+  </data>
+  <data name="FlyoutTypeSubscription" xml:space="preserve">
+    <value>Abonelik</value>
+  </data>
+  <data name="ButtonSubscription.Content" xml:space="preserve">
+    <value>Bağlantıyı düzenle</value>
+  </data>
+  <data name="NotificationTypeError" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="NotificationTypeInformative" xml:space="preserve">
+    <value>Bildiri</value>
+  </data>
+  <data name="NotificationTypeRequest" xml:space="preserve">
+    <value>İstek</value>
+  </data>
+  <data name="FlyoutTypeAbout" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="FlyoutTypeDeleteData" xml:space="preserve">
+    <value>Veri sil</value>
+  </data>
+  <data name="DeleteAccountMessage" xml:space="preserve">
+    <value>Hesabı silmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="MessageBoxNo" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+  <data name="MessageBoxYes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="DeleteAllDataMessage" xml:space="preserve">
+    <value>Tüm uygulama verilerini sıfırlamak istediğinizden emin misiniz?</value>
+  </data>
+  <data name="ButtonAccountListEdit.Content" xml:space="preserve">
+    <value>Hesapları düzenle</value>
+  </data>
+  <data name="ButtonCloseApplication.Content" xml:space="preserve">
+    <value>Sorunları çöz</value>
+  </data>
+  <data name="AboutAuthor.Text" xml:space="preserve">
+    <value>Chat Paul Freund tarafından yazılmıştır - LVL3 Solutions. Windows Store üzerinden sorun ve önerilerinizi göndermekten çekinmeyiniz.</value>
+  </data>
+  <data name="AboutTextEnd.Text" xml:space="preserve">
+    <value>Ubiety XMPP kütüphanesi LGPLv3 antında yayımlanmıştır ve bu yazılım değiştirilebilir bir parçasıdır.</value>
+  </data>
+  <data name="AboutTextStart.Text" xml:space="preserve">
+    <value>Chat Ubiety XMPP kütüphanesinden çatal alınmıştır.</value>
+  </data>
+  <data name="AccountEditSwitchConnectedStandby.Header" xml:space="preserve">
+    <value>Uyku durumunda bağlı kal</value>
+  </data>
+  <data name="AccountEditSwitchMD5.Header" xml:space="preserve">
+    <value>MD5 şifreli kimlik doğrulama izin ver</value>
+  </data>
+  <data name="AccountEditSwitchOldStyleSSL.Header" xml:space="preserve">
+    <value>Eski SSL yöntemini kullanın</value>
+  </data>
+  <data name="AccountEditSwitchPlain.Header" xml:space="preserve">
+    <value>Şifresiz kimlik doğrulamaya izin ver</value>
+  </data>
+  <data name="AccountEditSwitchSCRAM.Header" xml:space="preserve">
+    <value>Scram şifreli doğrulamaya izin ver</value>
+  </data>
+  <data name="AccountEditSwitchUseSSL.Header" xml:space="preserve">
+    <value>SSL kullanarak bağlan</value>
+  </data>
+  <data name="AddContactLabelAccount.Text" xml:space="preserve">
+    <value>Hesap</value>
+  </data>
+  <data name="AuthorLabel.Text" xml:space="preserve">
+    <value>Yazar</value>
+  </data>
+  <data name="ButtonAdd.Content" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+  <data name="ButtonCancel.Content" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="ButtonDeleteAccounts.Content" xml:space="preserve">
+    <value>Tüm hesapları kaldır</value>
+  </data>
+  <data name="ButtonDeleteAll.Content" xml:space="preserve">
+    <value>Tümünü sil</value>
+  </data>
+  <data name="ButtonDeleteAvatars.Content" xml:space="preserve">
+    <value>Avatar önbelleğini temizle</value>
+  </data>
+  <data name="ButtonDeleteRoster.Content" xml:space="preserve">
+    <value>Kişi listesini sil</value>
+  </data>
+  <data name="ButtonDeleteSettings.Content" xml:space="preserve">
+    <value>Ayarları sil</value>
+  </data>
+  <data name="ButtonHide.Content" xml:space="preserve">
+    <value>Gizle</value>
+  </data>
+  <data name="ButtonNo.Content" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+  <data name="ButtonSave.Content" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="ButtonYes.Content" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="CloseApplicationDescription.Text" xml:space="preserve">
+    <value>Ciddi bir hata ile karşılaşıldı, uygulama muhtemelen kapalı ve yeniden açılması gerekir. Sorunun tekrar etmemesi için arkaplanda çalışmaya izin vermelisiniz</value>
+  </data>
+  <data name="ColorPickerLime.Text" xml:space="preserve">
+    <value>Limon</value>
+  </data>
+  <data name="ColorPickerMango.Text" xml:space="preserve">
+    <value>Mango</value>
+  </data>
+  <data name="ColorPickerPink.Text" xml:space="preserve">
+    <value>Pembe</value>
+  </data>
+  <data name="ColorPickerSky.Text" xml:space="preserve">
+    <value>Gök</value>
+  </data>
+  <data name="ColorPickerTurquoise.Text" xml:space="preserve">
+    <value>Turkuaz</value>
+  </data>
+  <data name="ConnectedStandbyDescription.Text" xml:space="preserve">
+    <value>Bu uygulama uyku durumunda bağlı kalmayı destekler, kilit ekranı en fazla 2 bağlantı için izin verir. Daha fazlası hatalara sebep olabilir</value>
+  </data>
+  <data name="DeleteDataDescription.Text" xml:space="preserve">
+    <value>Tüm verilerinizin tam anlamı ile kaldırılması için, hesabı kaldırdıktan sonra uygulamayı yeniden başlatın</value>
+  </data>
+  <data name="FormInvalidWarning.Text" xml:space="preserve">
+    <value>Gereken bilgileri eksiksiz giriniz</value>
+  </data>
+  <data name="ImportantLabel.Text" xml:space="preserve">
+    <value>Önemli</value>
+  </data>
+  <data name="LabelAlias.Text" xml:space="preserve">
+    <value>Takma ad</value>
+  </data>
+  <data name="LabelColor.Text" xml:space="preserve">
+    <value>Renk</value>
+  </data>
+  <data name="LabelHost.Text" xml:space="preserve">
+    <value>Server adres (Alanadı veya IP)</value>
+  </data>
+  <data name="LabelJID.Text" xml:space="preserve">
+    <value>Jabber-ID (JID) Örn:user@server.tld</value>
+  </data>
+  <data name="LabelPassword.Text" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="LabelPort.Text" xml:space="preserve">
+    <value>Server port (Varsayılan 5222)</value>
+  </data>
+  <data name="LabelTitle.Text" xml:space="preserve">
+    <value>Hesap adı</value>
+  </data>
+  <data name="LegalLabel.Text" xml:space="preserve">
+    <value>Yasal</value>
+  </data>
+  <data name="RemoveContactText.Text" xml:space="preserve">
+    <value>Kişiyi hesaptan kaldır</value>
+  </data>
+  <data name="ButtonRequestBackgroundAccess.Content" xml:space="preserve">
+    <value>Erişim isteği</value>
+  </data>
+  <data name="ButtonAllow.Content" xml:space="preserve">
+    <value>İzin ver</value>
+  </data>
+  <data name="ButtonAllowAdd.Content" xml:space="preserve">
+    <value>İzin ver &amp; Ekle</value>
+  </data>
+  <data name="ButtonDeleteData.Content" xml:space="preserve">
+    <value>Verileri sil</value>
+  </data>
+  <data name="ButtonDeny.Content" xml:space="preserve">
+    <value>Reddet</value>
+  </data>
+  <data name="ButtonRemoveContact.Content" xml:space="preserve">
+    <value>Kişiyi sil</value>
+  </data>
+  <data name="ButtonReRequest.Content" xml:space="preserve">
+    <value>(Re)Erişim isteği</value>
+  </data>
+  <data name="ButtonSetAvatar.Content" xml:space="preserve">
+    <value>Avatarı değiştir</value>
+  </data>
+  <data name="ButtonTextAccountListEdit" xml:space="preserve">
+    <value>Hesapları düzenle</value>
+  </data>
+  <data name="ButtonTextCloseApplication" xml:space="preserve">
+    <value>Sorunları çöz</value>
+  </data>
+  <data name="ButtonTextSubscription" xml:space="preserve">
+    <value>Abonelik düzenle</value>
+  </data>
+  <data name="ConversationAccountOfflineWarning.Text" xml:space="preserve">
+    <value>Hesabınız bağlı değil, mesajlar gönderilemez</value>
+  </data>
+  <data name="ConversationContactOfflineWarning.Text" xml:space="preserve">
+    <value>Kişi çevrimdışı, mesajınız iletilmemiş olabilir</value>
+  </data>
+  <data name="LabelAutoAwayMessage" xml:space="preserve">
+    <value>Otomatik uzakta durum mesajı</value>
+  </data>
+  <data name="SettingsAcousticNotifications.Header" xml:space="preserve">
+    <value>Sesli bildirimler</value>
+  </data>
+  <data name="SettingsAcousticNotificationsDescription.Text" xml:space="preserve">
+    <value>Sohbet pencerelerden "Anlık İleti Bildirimi" sesi kullanılır, Denetim Masası / Ses ayarlarından değiştirebilirsiniz</value>
+  </data>
+  <data name="SettingsAllowUnknown.Header" xml:space="preserve">
+    <value>Bilinmeyen gönderenlerin mesajlarına izin ver</value>
+  </data>
+  <data name="SettingsAutoAway.Header" xml:space="preserve">
+    <value>Bir süre sonra "Dışarıda" olarak ayarla</value>
+  </data>
+  <data name="SettingsAutoDownloadAvatars.Header" xml:space="preserve">
+    <value>Kişilerin avatarlarını görüntüle</value>
+  </data>
+  <data name="SettingsAutoScrollRoster.Header" xml:space="preserve">
+    <value>Kişi listesinde otomatik kaydırma</value>
+  </data>
+  <data name="SettingsAutoSortRoster.Header" xml:space="preserve">
+    <value>Kişi listesini sırala</value>
+  </data>
+  <data name="SettingsInvertOwnMessages.Header" xml:space="preserve">
+    <value>Mesajlarımı tersine çevir</value>
+  </data>
+  <data name="SettingsNotifications.Header" xml:space="preserve">
+    <value>Bildirimleri etkinleştir.</value>
+  </data>
+  <data name="SettingsNotificationsVisible.Header" xml:space="preserve">
+    <value>Uygulama bildirimleri her zaman görünür</value>
+  </data>
+  <data name="SettingsShowOffline.Header" xml:space="preserve">
+    <value>Çevrimdışı kişileri göster</value>
+  </data>
+  <data name="SettingsStickyRosterContacts.Header" xml:space="preserve">
+    <value>Son iletişim kurulanlar, kişi listesinin en üstünde</value>
+  </data>
+  <data name="SSLWarning.Text" xml:space="preserve">
+    <value>Uyarı, Windows 8 kendinden imzalı sertifikalar kabul etmez!</value>
+  </data>
+  <data name="StatusEditLabelAvatar.Text" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="StatusEditLabelStatus.Text" xml:space="preserve">
+    <value>Durumlar</value>
+  </data>
+  <data name="StatusEditLabelStatusMessage.Text" xml:space="preserve">
+    <value>Durum mesajı</value>
+  </data>
+  <data name="StatusTypeAvailableLabel.Text" xml:space="preserve">
+    <value>Uygun</value>
+  </data>
+  <data name="StatusTypeAwayLabel.Text" xml:space="preserve">
+    <value>Dışarıda</value>
+  </data>
+  <data name="StatusTypeBusyLabel.Text" xml:space="preserve">
+    <value>Meşgul</value>
+  </data>
+  <data name="StatusTypeOfflineLabel.Text" xml:space="preserve">
+    <value>Çıkış yapıldı</value>
+  </data>
+  <data name="SubscriptionFromAccountText.Text" xml:space="preserve">
+    <value>hasabından</value>
+  </data>
+  <data name="SubscriptionNotAuthorizedText.Text" xml:space="preserve">
+    <value>(henüz) bir kişi olarak yetkili değildir</value>
+  </data>
+  <data name="SubscriptionNotSubscribedText.Text" xml:space="preserve">
+    <value>kişi listesine eklemedi</value>
+  </data>
+  <data name="SubscriptionRequestText.Text" xml:space="preserve">
+    <value>kişi listesine eklemek istiyor</value>
+  </data>
+  <data name="SubscriptionTheContactText.Text" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
+  <data name="NewNotificationSingle" xml:space="preserve">
+    <value>Yeni bildirim</value>
+  </data>
+  <data name="NoAccountsOverlayText.Text" xml:space="preserve">
+    <value>Bir hesap oluşturmak için Uygulama çubuğundan hesapları veya ayarları kullanın. Eğer soru, sorun veya öneriniz varsa ziyaret edin</value>
+  </data>
+  <data name="AccountListCountWarning.Text" xml:space="preserve">
+    <value>Windows sadece 5 eşzamanlı bağlantının arkaplanda çalışmasına izin verir</value>
+  </data>
+  <data name="AddFacebookAccountMessage" xml:space="preserve">
+    <value>Facebook hesabı ile giriş bu bağlantıda açıklanmıştır : http://www.facebook.com/sitetour/chat.php</value>
+  </data>
+  <data name="MessageBoxOk" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="ErrorTypeInvalidSettings" xml:space="preserve">
+    <value>Hesap ayarları geçersiz</value>
+  </data>
+  <data name="SettingsShowInformativeErrors.Header" xml:space="preserve">
+    <value>Kritik olmayan hataları göster</value>
+  </data>
+  <data name="ButtonExtendedSettings.Content" xml:space="preserve">
+    <value>Genişletilmiş ayarlar</value>
+  </data>
+  <data name="PrivacyLink" xml:space="preserve">
+    <value>http://lvl3.org/en/chatprivacy/</value>
+  </data>
+  <data name="PrivacyPolicyTitle" xml:space="preserve">
+    <value>Gizlilik Politikası</value>
+  </data>
+  <data name="SettingsInvertInterface.Header" xml:space="preserve">
+    <value>Kişiler sağda</value>
+  </data>
+  <data name="AboutThanks.Text" xml:space="preserve">
+    <value>Andrew Joyce tasarımda gönüllü olarak yardımcı oldu.</value>
+  </data>
+  <data name="NoAccountsOverlayWelcome.Text" xml:space="preserve">
+    <value>Sohbet'e hoş geldiniz</value>
+  </data>
+  <data name="ThanksLabel.Text" xml:space="preserve">
+    <value>Teşekkürler</value>
+  </data>
+  <data name="FlyoutTypeThemeEdit" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="ColorContent.Text" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="ColorFrame.Text" xml:space="preserve">
+    <value>Çerçeve</value>
+  </data>
+  <data name="ColorContactList.Text" xml:space="preserve">
+    <value>Kişi listesi</value>
+  </data>
+  <data name="ColorHighlight.Text" xml:space="preserve">
+    <value>Parlak</value>
+  </data>
+  <data name="ColorStatus.Text" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="ColorForeground.ColorName" xml:space="preserve">
+    <value>Önplan</value>
+  </data>
+  <data name="ColorBackground.ColorName" xml:space="preserve">
+    <value>Arkaplan</value>
+  </data>
+  <data name="ColorSecondary.ColorName" xml:space="preserve">
+    <value>Ayraç</value>
+  </data>
+  <data name="ColorPopout.ColorName" xml:space="preserve">
+    <value>Popout</value>
+  </data>
+  <data name="ColorEnabled.ColorName" xml:space="preserve">
+    <value>Devrede</value>
+  </data>
+  <data name="ColorDisabled.ColorName" xml:space="preserve">
+    <value>Devre dışı</value>
+  </data>
+  <data name="ColorSelection.ColorName" xml:space="preserve">
+    <value>Seçim</value>
+  </data>
+  <data name="ColorImportant.ColorName" xml:space="preserve">
+    <value>Önemli</value>
+  </data>
+  <data name="ColorWarning.ColorName" xml:space="preserve">
+    <value>Dikkat</value>
+  </data>
+  <data name="ColorRequest.ColorName" xml:space="preserve">
+    <value>İstek</value>
+  </data>
+  <data name="ColorAvailable.ColorName" xml:space="preserve">
+    <value>Uygun</value>
+  </data>
+  <data name="ColorAway.ColorName" xml:space="preserve">
+    <value>Dışarıda</value>
+  </data>
+  <data name="ColorDnd.ColorName" xml:space="preserve">
+    <value>Meşgul</value>
+  </data>
+  <data name="ColorOffline.ColorName" xml:space="preserve">
+    <value>Çıkış yapıldı</value>
+  </data>
+  <data name="ThemeEditDescription.Text" xml:space="preserve">
+    <value>Renkler onaltılık şeklinde düzenlenebilir.Sayı işareti sonra her renk kanalı iki hane ile temsil edilmektedir.Ilk kanal alfa (saydamlık) kanal, daha sonra kırmızı, yeşil ve mavi kanal geliyor</value>
+  </data>
+  <data name="ButtonReset.Content" xml:space="preserve">
+    <value>Varsayılan ayarlar</value>
+  </data>
+  <data name="AccountStateWarning.Text" xml:space="preserve">
+    <value>Bir veya daha fazla hesap düzgün bağlı değil</value>
+  </data>
+  <data name="NoAccountsOverlayFacebook.Text" xml:space="preserve">
+    <value>. Eğer bir Facebook hesabı gerekiyorsa ziyaret edin</value>
+  </data>
+  <data name="NoAccountsOverlayGoogle.Text" xml:space="preserve">
+    <value>Bir Google Talk hesabına ihtiyacınız varsa ziyaret edin</value>
+  </data>
+  <data name="NoAccountsOverlayXMPP.Text" xml:space="preserve">
+    <value>. For XMPP hesaplarında size uygun bir sağlayıcı bulmaktan çekinmeyin</value>
+  </data>
+</root>

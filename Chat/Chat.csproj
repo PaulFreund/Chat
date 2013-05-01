@@ -190,6 +190,9 @@
     </AppxManifest>
     <None Include="Chat_StoreKey.pfx" />
     <None Include="Chat_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\tr\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
     <PRIResource Include="Strings\de\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
