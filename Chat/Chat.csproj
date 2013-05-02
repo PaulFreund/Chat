@@ -14,7 +14,7 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Chat_StoreKey.pfx</PackageCertificateKeyFile>
     <ExpressionBlendVersion>5.0.30514.0</ExpressionBlendVersion>
-    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxPackageDir>C:\Users\Paul\Documents\BUILD\</AppxPackageDir>
     <PackageCertificateThumbprint>70957AE1C8EA61E3157695E7D835DE4F05A71923</PackageCertificateThumbprint>
   </PropertyGroup>
