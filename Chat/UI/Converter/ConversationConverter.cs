@@ -26,11 +26,80 @@
 //###################################################################################################
 
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 
 namespace Chat.UI.Converter
 {
+    public class RichMessageParser : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            var source = value as string;
+            var block = new Paragraph();
+
+            var urls = Regex.Matches(source, @"(http|ftp|https|www)://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?");
+
+            int lastBlockEnd = -1;
+
+            foreach (var match in urls.Cast<Match>())
+            {
+                if (match.Index > lastBlockEnd)
+                {
+                    block.Inlines.Add(new Run
+                    {
+                        Text = source.Substring(lastBlockEnd + 1, match.Index - (lastBlockEnd + 1))
+                    });
+                }
+
+                if (Uri.IsWellFormedUriString(match.Value, UriKind.Absolute))
+                {
+                    var uri = new Uri(match.Value);
+                    var button = new Windows.UI.Xaml.Controls.HyperlinkButton
+                    {
+                        NavigateUri = uri,
+                        Content = match.Value,
+                        Margin = new Thickness(0,0,0,-7), // FIXME
+                        VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom,
+                        Padding = new Thickness(0)
+                    };
+                    
+                    block.Inlines.Add(new InlineUIContainer
+                    {
+                        Child = button                        
+                    });
+                }
+                else
+                {
+                    block.Inlines.Add(new Run
+                    {
+                        Text = match.Value
+                    });
+                }
+
+                lastBlockEnd = match.Index + match.Length;
+            }
+
+            if (lastBlockEnd < source.Length - 1)
+            {
+                block.Inlines.Add(new Run
+                {
+                    Text = source.Substring(lastBlockEnd + 1)
+                });
+            }
+
+            return block;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
     public class MessageTextAlignChooser : IValueConverter
     {
         private App Frontend { get { return (App)App.Current; } }
@@ -103,8 +172,7 @@ namespace Chat.UI.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language) { return null; }
     }
-
-
+    
     public class JIDToImageConverter : IValueConverter
     {
         private App Frontend { get { return (App)App.Current; } }

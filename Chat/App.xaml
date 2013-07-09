@@ -65,6 +65,7 @@
             <converter:OverlayColorPointerOver x:Key="OverlayColorPointerOver" />
             <converter:OverlayColorPressed x:Key="OverlayColorPressed" />
             <converter:OverlayColorDisabled x:Key="OverlayColorDisabled" />
+            <converter:RichMessageParser x:Key="RichMessageParser" />
             
             <!-- ==================================         Colors         ================================== -->
 
