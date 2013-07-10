@@ -32,12 +32,42 @@ using System.Linq;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 
 namespace Chat.UI.Controls
 {
     public sealed partial class Conversation : UserControl
     {
+        public static readonly DependencyProperty MessageTextProperty =
+            DependencyProperty.RegisterAttached("MessageText", typeof(Block),
+            typeof(Conversation), new PropertyMetadata(new Paragraph(), OnMessageTextChanged));
+
+        public static Block GetMessageText(DependencyObject obj)
+        {
+            return (Block)obj.GetValue(MessageTextProperty);
+        }
+
+        public static void SetMessageText(DependencyObject obj, Block value)
+        {
+            obj.SetValue(MessageTextProperty, value);
+        }
+
+        private static void OnMessageTextChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            var control = sender as RichTextBlock;
+            if (control != null)
+            {
+                control.Blocks.Clear();
+                var value = e.NewValue as Windows.UI.Xaml.Documents.Block;
+
+                if (value != null)
+                {
+                    control.Blocks.Add(value);
+                }
+            }
+        }
+
         private App Frontend { get { return (App)App.Current; } }
 
         private Backend.Data.ConversationItem CurrentItem { get; set; }
