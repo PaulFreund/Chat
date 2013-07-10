@@ -708,4 +708,10 @@
   <data name="NoAccountsOverlayXMPP.Text" xml:space="preserve">
     <value>. For XMPP accounts feel free to find a provider that suites you best.</value>
   </data>
+  <data name="SettingsEnableSpellChecking.Header" xml:space="preserve">
+    <value>Enable spell checking</value>
+  </data>
+  <data name="SettingsFocusTextInput.Header" xml:space="preserve">
+    <value>Focus text input conversation is activated</value>
+  </data>
 </root>

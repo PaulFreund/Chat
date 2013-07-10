@@ -176,6 +176,7 @@
                     BorderBrush="{x:Null}"
                     Background="{Binding ContentBackground, Source={StaticResource AppColors}}"
                     Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}"
+                    IsSpellCheckEnabled="{Binding enableSpellChecking}"
                 />
 
                 <!--<Button  

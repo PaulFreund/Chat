@@ -46,6 +46,8 @@ namespace Backend.Data
             SetDefault("autoDownloadAvatars", true);
             SetDefault("showInformativeErrors", false);
             SetDefault("invertInterface", false);
+            SetDefault("enableSpellChecking", false);
+            SetDefault("focusTextInput", false);
         }
 
         public bool showInformativeErrors { get { return GetProperty<bool>("showInformativeErrors"); } set { SetProperty<bool>("showInformativeErrors", value); } }        
@@ -62,5 +64,7 @@ namespace Backend.Data
         public bool stickyRosterContacts { get { return GetProperty<bool>("stickyRosterContacts"); } set { SetProperty<bool>("stickyRosterContacts", value); } }
         public bool autoDownloadAvatars { get { return GetProperty<bool>("autoDownloadAvatars"); } set { SetProperty<bool>("autoDownloadAvatars", value); } }
         public bool invertInterface { get { return GetProperty<bool>("invertInterface"); } set { SetProperty<bool>("invertInterface", value); } }      
+        public bool enableSpellChecking { get { return GetProperty<bool>("enableSpellChecking"); } set { SetProperty<bool>("enableSpellChecking", value); } }
+        public bool focusTextInput { get { return GetProperty<bool>("focusTextInput"); } set { SetProperty<bool>("focusTextInput", value); } }   
     }
 }

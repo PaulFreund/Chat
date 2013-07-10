@@ -104,6 +104,24 @@
         />
 
         <ToggleSwitch 
+            x:Uid="SettingsEnableSpellChecking" 
+            IsOn="{Binding enableSpellChecking, Mode=TwoWay}"
+            Header="Enable spell checking" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
+            x:Uid="SettingsFocusTextInput" 
+            IsOn="{Binding focusTextInput, Mode=TwoWay}"
+            Header="Focus text input conversation is activated" 
+            Style="{StaticResource FlyoutToggleSwitch}" 
+            OffContent="{StaticResource ToggleSwitchOffText}" 
+            OnContent="{StaticResource ToggleSwitchOnText}" 
+        />
+
+        <ToggleSwitch 
             x:Uid="SettingsAllowUnknown" 
             IsOn="{Binding allowUnknownSenders, Mode=TwoWay}"
             Header="Allow messages from unknown senders" 

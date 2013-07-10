@@ -708,4 +708,10 @@
   <data name="NoAccountsOverlayXMPP.Text" xml:space="preserve">
     <value>. Für ein XMPP/Jabber Konto bitten wir Sie einen Anbieter zu suchen der am besten Ihren Bedürfnissen entspricht.</value>
   </data>
+  <data name="SettingsEnableSpellChecking.Header" xml:space="preserve">
+    <value>Rechtschreibprüfung aktivieren</value>
+  </data>
+  <data name="SettingsFocusTextInput.Header" xml:space="preserve">
+    <value>Texteingabe fokusieren wenn Konversation aktiviert wird</value>
+  </data>
 </root>

@@ -85,7 +85,11 @@ namespace Chat.UI.Converter
                     var button = new Windows.UI.Xaml.Controls.HyperlinkButton
                     {
                         NavigateUri = uri,
-                        Content = match.Value,
+                        Content = new Windows.UI.Xaml.Controls.TextBlock 
+                        {
+                            Text = match.Value,
+                            TextWrapping = TextWrapping.Wrap
+                        },
                         Style = Frontend.Resources["ConversationHyperlink"] as Style
                     };
 

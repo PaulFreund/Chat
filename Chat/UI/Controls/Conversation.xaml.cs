@@ -141,6 +141,7 @@ namespace Chat.UI.Controls
             {
                 this.InitializeComponent();
 
+                SendText.DataContext = Frontend.Settings;
                 CurrentConversation = null;
 
                 Frontend.Events.OnRosterContactSelected += OnRosterContactSelected;
@@ -148,8 +149,24 @@ namespace Chat.UI.Controls
                 Frontend.Events.OnSettingsChanged += OnSettingsChanged;
                 Frontend.Events.OnContactsChanged += OnContactsChanged;
                 Frontend.CoreWindow.VisibilityChanged += CoreWindow_VisibilityChanged;
+                Frontend.CoreWindow.Activated += CoreWindow_Activated;
 
                 SizeChanged += Conversation_SizeChanged;
+            }
+            catch (Exception uiEx) { Frontend.UIError(uiEx); }
+        }
+
+        void CoreWindow_Activated(CoreWindow sender, WindowActivatedEventArgs args)
+        {
+            try
+            {
+                if (args.WindowActivationState != CoreWindowActivationState.Deactivated &&
+                    Frontend.Settings.focusTextInput &&
+                    CurrentConversation != null
+                )
+                {
+                    this.SendText.Focus(FocusState.Programmatic);
+                }
             }
             catch (Exception uiEx) { Frontend.UIError(uiEx); }
         }
@@ -238,7 +255,8 @@ namespace Chat.UI.Controls
                         ScrollToBottom();
                         
                         // Can be vary annoying
-                        //SendText.Focus(FocusState.Programmatic);
+                        if (Frontend.Settings.focusTextInput)
+                            this.SendText.Focus(FocusState.Programmatic);
                     }
                     else // No contact selected
                     {

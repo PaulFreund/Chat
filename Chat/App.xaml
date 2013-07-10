@@ -283,7 +283,7 @@
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="FontWeight" Value="Semilight" />
                 <Setter Property="Margin" Value="0,0,0,0" />
-                <Setter Property="Padding" Value="0,0,0,-7" />
+                <Setter Property="Padding" Value="-3,0,0,-7" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
                 <Setter Property="VerticalContentAlignment" Value="Bottom" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
@@ -320,7 +320,21 @@
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="TextWrapping" Value="Wrap" />
             </Style>
-
+            
+            <!-- ==================================         ConversationHyperlink     ================================== -->
+            
+            <Style x:Key="ConversationHyperlink" TargetType="HyperlinkButton">
+                <Setter Property="Foreground" Value="Blue" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="Semilight" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="Padding" Value="-3,0,0,-7" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="VerticalContentAlignment" Value="Bottom" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+            </Style>
+            
             <!-- ==================================         Simple ListViewItem        ================================== -->
 
             <Style x:Key="SimpleListViewItemStyle" TargetType="ListViewItem">
@@ -811,15 +825,6 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
-
-            <!-- ==================================         ConversationHyperlink     ================================== -->
-            <Style x:Key="ConversationHyperlink" TargetType="HyperlinkButton">
-                <!-- hack to force the buttons to display like inline text, 
-                needs adjustment for different font sizes... -->
-                <Setter Property="Margin" Value="-3,0,0,-7"/>
-                <Setter Property="Padding" Value="0,0,0,0"/>
-                <Setter Property="FontSize" Value="16" />
             </Style>
 
         </ResourceDictionary>
