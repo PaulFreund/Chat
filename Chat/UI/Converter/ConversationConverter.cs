@@ -26,11 +26,97 @@
 //###################################################################################################
 
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 
 namespace Chat.UI.Converter
 {
+    public class RichMessageParser : IValueConverter
+    {
+        private App Frontend { get { return (App)App.Current; } }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            var source = (value as string) ?? string.Empty;
+            try
+            {
+                return Parse(source);
+            }
+            catch (Exception uiEx) { Frontend.UIError(uiEx); }
+
+            var p = new Paragraph();
+            p.Inlines.Add(new Run() { Text = source });
+            return p;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+
+        private Block Parse(string source)
+        {
+            const string UrlRegex = @"(http|https)://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?";
+            var urls = Regex.Matches(source, UrlRegex);
+
+            var block = new Paragraph();
+            int lastBlockEnd = -1;
+
+            foreach (var match in urls.Cast<Match>())
+            {
+                if (match.Index > lastBlockEnd)
+                {
+                    block.Inlines.Add(new Run
+                    {
+                        Text = source.Substring(lastBlockEnd + 1, match.Index - (lastBlockEnd + 1))
+                    });
+                }
+
+                if (Uri.IsWellFormedUriString(match.Value, UriKind.Absolute))
+                {
+                    var uri = new Uri(match.Value);
+
+                    // In theory this should be done with Windows.UI.Xaml.Documents.Hyperlink,
+                    // but in practice that class doesn't seem to exist outside of the documentation.
+                    // This is a hopefully temporary hack until MS fixes that.
+                    var button = new Windows.UI.Xaml.Controls.HyperlinkButton
+                    {
+                        NavigateUri = uri,
+                        Content = match.Value,
+                        Style = Frontend.Resources["ConversationHyperlink"] as Style
+                    };
+
+                    block.Inlines.Add(new InlineUIContainer
+                    {
+                        Child = button                        
+                    });
+                }
+                else
+                {
+                    block.Inlines.Add(new Run
+                    {
+                        Text = source.Substring(match.Index, match.Length)
+                    });
+                }
+
+                lastBlockEnd = match.Index + match.Length;
+            }
+
+            if (lastBlockEnd < source.Length - 1)
+            {
+                block.Inlines.Add(new Run
+                {
+                    Text = source.Substring(lastBlockEnd + 1)
+                });
+            }
+
+            return block;
+        }
+    }
+
     public class MessageTextAlignChooser : IValueConverter
     {
         private App Frontend { get { return (App)App.Current; } }
@@ -103,8 +189,7 @@ namespace Chat.UI.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language) { return null; }
     }
-
-
+    
     public class JIDToImageConverter : IValueConverter
     {
         private App Frontend { get { return (App)App.Current; } }
