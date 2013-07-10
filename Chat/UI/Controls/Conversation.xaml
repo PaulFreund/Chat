@@ -100,19 +100,12 @@
                                     VerticalAlignment="Top" 
                                 >
                                     <ListView.ItemTemplate>
-                                        <DataTemplate>                                       
-                                            <!--<TextBlock 
-                                                Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" 
-                                                FontSize="16" 
-                                                Text="{Binding Body}" 
-                                                TextWrapping="Wrap" 
-                                                FlowDirection="LeftToRight" 
-                                                IsTextSelectionEnabled="True" 
-                                            />-->
+                                    <DataTemplate>
+                                        <!-- if changing font size, remember to fix the hyperlink style in App.xaml -->
                                         <RichTextBlock 
                                                 Foreground="{Binding ContentForeground, Source={StaticResource AppColors}}" 
-                                                FontSize="16" 
                                                 local:Conversation.MessageText="{Binding Body, Converter={StaticResource RichMessageParser}}" 
+                                                FontSize="16" 
                                                 TextWrapping="Wrap" 
                                                 FlowDirection="LeftToRight" 
                                                 IsTextSelectionEnabled="True" 

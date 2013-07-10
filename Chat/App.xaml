@@ -813,6 +813,15 @@
                 </Setter>
             </Style>
 
+            <!-- ==================================         ConversationHyperlink     ================================== -->
+            <Style x:Key="ConversationHyperlink" TargetType="HyperlinkButton">
+                <!-- hack to force the buttons to display like inline text, 
+                needs adjustment for different font sizes... -->
+                <Setter Property="Margin" Value="-3,0,0,-7"/>
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

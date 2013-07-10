@@ -60,7 +60,11 @@ namespace Chat.UI.Controls
             {
                 control.Blocks.Clear();
                 var value = e.NewValue as Windows.UI.Xaml.Documents.Block;
-                control.Blocks.Add(value);
+
+                if (value != null)
+                {
+                    control.Blocks.Add(value);
+                }
             }
         }
 

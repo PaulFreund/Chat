@@ -36,13 +36,33 @@ namespace Chat.UI.Converter
 {
     public class RichMessageParser : IValueConverter
     {
+        private App Frontend { get { return (App)App.Current; } }
+
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var source = value as string;
+            var source = (value as string) ?? string.Empty;
+            try
+            {
+                return Parse(source);
+            }
+            catch (Exception uiEx) { Frontend.UIError(uiEx); }
+
+            var p = new Paragraph();
+            p.Inlines.Add(new Run() { Text = source });
+            return p;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+
+        private Block Parse(string source)
+        {
+            const string UrlRegex = @"(http|https)://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?";
+            var urls = Regex.Matches(source, UrlRegex);
+
             var block = new Paragraph();
-
-            var urls = Regex.Matches(source, @"(http|ftp|https|www)://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?");
-
             int lastBlockEnd = -1;
 
             foreach (var match in urls.Cast<Match>())
@@ -58,15 +78,17 @@ namespace Chat.UI.Converter
                 if (Uri.IsWellFormedUriString(match.Value, UriKind.Absolute))
                 {
                     var uri = new Uri(match.Value);
+
+                    // In theory this should be done with Windows.UI.Xaml.Documents.Hyperlink,
+                    // but in practice that class doesn't seem to exist outside of the documentation.
+                    // This is a hopefully temporary hack until MS fixes that.
                     var button = new Windows.UI.Xaml.Controls.HyperlinkButton
                     {
                         NavigateUri = uri,
                         Content = match.Value,
-                        Margin = new Thickness(0,0,0,-7), // FIXME
-                        VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Bottom,
-                        Padding = new Thickness(0)
+                        Style = Frontend.Resources["ConversationHyperlink"] as Style
                     };
-                    
+
                     block.Inlines.Add(new InlineUIContainer
                     {
                         Child = button                        
@@ -76,7 +98,7 @@ namespace Chat.UI.Converter
                 {
                     block.Inlines.Add(new Run
                     {
-                        Text = match.Value
+                        Text = source.Substring(match.Index, match.Length)
                     });
                 }
 
@@ -92,11 +114,6 @@ namespace Chat.UI.Converter
             }
 
             return block;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            return DependencyProperty.UnsetValue;
         }
     }
 
