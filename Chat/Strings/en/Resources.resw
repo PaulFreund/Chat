@@ -288,9 +288,6 @@
   <data name="UnknownError" xml:space="preserve">
     <value>Unknown error</value>
   </data>
-  <data name="NewNotificationsMulti" xml:space="preserve">
-    <value>New notifications</value>
-  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -510,7 +507,7 @@
   <data name="ConversationContactOfflineWarning.Text" xml:space="preserve">
     <value>The contact is offline, messages might not be delivered</value>
   </data>
-  <data name="LabelAutoAwayMessage" xml:space="preserve">
+  <data name="LabelAutoAwayMessage.Text" xml:space="preserve">
     <value>Auto away message</value>
   </data>
   <data name="SettingsAcousticNotifications.Header" xml:space="preserve">
@@ -590,6 +587,9 @@
   </data>
   <data name="NewNotificationSingle" xml:space="preserve">
     <value>New notification</value>
+  </data>
+  <data name="NewNotificationsMulti" xml:space="preserve">
+    <value>New notifications</value>
   </data>
   <data name="NoAccountsOverlayText.Text" xml:space="preserve">
     <value>Please use the App bar or the settings charm to create an account. If you have questions, problems or suggestions please visit</value>

@@ -303,9 +303,6 @@
   <data name="SubscriptionUnsubscribed" xml:space="preserve">
     <value>hat aufgehört deinen Status zu verfolgen</value>
   </data>
-  <data name="ButtonAccountListEdit.Content" xml:space="preserve">
-    <value>Konten bearbeiten</value>
-  </data>
   <data name="FlyoutTypeCloseApplication" xml:space="preserve">
     <value>Probleme lösen</value>
   </data>
@@ -341,6 +338,9 @@
   </data>
   <data name="DeleteAllDataMessage" xml:space="preserve">
     <value>Sind Sie sicher das sie alle Einstellungen und Daten des Programms zurücksetzen wollen?</value>
+  </data>
+  <data name="ButtonAccountListEdit.Content" xml:space="preserve">
+    <value>Konten bearbeiten</value>
   </data>
   <data name="ButtonCloseApplication.Content" xml:space="preserve">
     <value>Probleme lösen</value>
@@ -507,7 +507,7 @@
   <data name="ConversationContactOfflineWarning.Text" xml:space="preserve">
     <value>Der Kontakt abgemeldet, Nachrichten könnten verloren gehen</value>
   </data>
-  <data name="LabelAutoAwayMessage" xml:space="preserve">
+  <data name="LabelAutoAwayMessage.Text" xml:space="preserve">
     <value>Nachricht bei autom. Abwesenheit</value>
   </data>
   <data name="SettingsAcousticNotifications.Header" xml:space="preserve">

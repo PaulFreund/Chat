@@ -1,0 +1,41 @@
+Description:
+===================================
+
+Chat kann sich zu verschiedenen XMPP (Jabber) Netzwerken verbinden, unter anderem Facebook Chat und Google Talk.
+
+Der Quellcode von Chat ist ab jetzt verfügbar unter: https://github.com/PaulFreund/Chat
+
+
+App features:
+===================================
+
+XMPP/Jabber, Facebook und Google Talk Konten
+Sichere Verbindung und Anmeldung
+Immer verbunden mit Connected Standby
+Benachrichtigungen und automatisches Wiederverbinden bei Verbindungsabbrüchen/Fehlern
+Bis zu 5 Konten gleichzeitig, 2 davon mit Connected Standby
+Optimiert auf Verbindungsstabilität
+Im angedockten Zustand chatten
+
+
+Screenshot captions:
+===================================
+Unterhalten sie sich mit ihren Freunden
+Mit bis zu fünf Konten
+Auch in angedocktem Zustand
+
+
+Screenshot content:
+===================================
+
+:) Hey, wie geht's dir?
+Gut und dir?
+
+
+Notes:
+===================================
+
+Hinzugefügte Funktionen
+* Klickbare Links in Konversationen ( Danke zsgalusz (GitHub) )
+* Optionale Rechtschreibprüfung für die Texteingabe
+* Optionales automatisches Fokussieren der Texteingabe bei Aktivierung von Konversationen

@@ -288,9 +288,6 @@
   <data name="UnknownError" xml:space="preserve">
     <value>Bilinmeyen bir hata oluştu</value>
   </data>
-  <data name="NewNotificationsMulti" xml:space="preserve">
-    <value>Yeni bildirimler</value>
-  </data>
   <data name="Error" xml:space="preserve">
     <value>Hata</value>
   </data>
@@ -510,7 +507,7 @@
   <data name="ConversationContactOfflineWarning.Text" xml:space="preserve">
     <value>Kişi çevrimdışı, mesajınız iletilmemiş olabilir</value>
   </data>
-  <data name="LabelAutoAwayMessage" xml:space="preserve">
+  <data name="LabelAutoAwayMessage.Text" xml:space="preserve">
     <value>Otomatik uzakta durum mesajı</value>
   </data>
   <data name="SettingsAcousticNotifications.Header" xml:space="preserve">
@@ -590,6 +587,9 @@
   </data>
   <data name="NewNotificationSingle" xml:space="preserve">
     <value>Yeni bildirim</value>
+  </data>
+  <data name="NewNotificationsMulti" xml:space="preserve">
+    <value>Yeni bildirimler</value>
   </data>
   <data name="NoAccountsOverlayText.Text" xml:space="preserve">
     <value>Bir hesap oluşturmak için Uygulama çubuğundan hesapları veya ayarları kullanın. Eğer soru, sorun veya öneriniz varsa ziyaret edin</value>
@@ -707,5 +707,11 @@
   </data>
   <data name="NoAccountsOverlayXMPP.Text" xml:space="preserve">
     <value>. For XMPP hesaplarında size uygun bir sağlayıcı bulmaktan çekinmeyin</value>
+  </data>
+  <data name="SettingsEnableSpellChecking.Header" xml:space="preserve">
+    <value>___NEEDS_TRANSLATION___</value>
+  </data>
+  <data name="SettingsFocusTextInput.Header" xml:space="preserve">
+    <value>___NEEDS_TRANSLATION___</value>
   </data>
 </root>
