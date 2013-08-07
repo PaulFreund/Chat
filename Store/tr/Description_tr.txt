@@ -1,0 +1,40 @@
+Description:
+===================================
+
+Chat Facebook Chat ve Google Talk da dâhil olmak üzere XMPP (Jabber) aracýlýðýyla çeþitli anýnda mesajlaþma aðlarýna baðlanmanýza olanak saðlar.
+
+Chat kaynak kodu þu adreste kullanýma sunulmuþ durumdadýr: https://github.com/PaulFreund/Chat
+
+
+App features:
+===================================
+
+XMPP/Jabber, Facebook ve Google Talk hesaplarý
+Güvenli baðlantý ve yetkilendirme
+Connected Standby ile her zaman baðlý
+Baðlantý kesilmeleri/hatalarý durumunda bildirim ve otomatik yeniden baðlanma5 eþzamanlý hesap, bunlarýn ikisi Connected Standby
+Baðlantý istikrarý optimize
+Hemen açýlan görünümde sohbet
+
+
+Screenshot captions:
+===================================
+Arkadaþlarýnýzla sohbet edin
+Beþ adede kadar hesap kullanarak 
+Hatta hemen açýlan durumda
+
+
+Screenshot content:
+===================================
+
+:) Hey, nasýlsýn?
+Ýyiyim, ya sen?
+
+
+Notes:
+===================================
+
+Eklenen özellikler
+* Konuþmalarda týklanabilir baðlantýlar (zsgalusz (GitHub) sayesinde)
+* Metin giriþi için isteðe baðlý yazým denetimi
+* Konuþma etkinse, metin giriþi için isteðe baðlý otomatik odaklanma

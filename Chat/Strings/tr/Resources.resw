@@ -709,9 +709,9 @@
     <value>. For XMPP hesaplarında size uygun bir sağlayıcı bulmaktan çekinmeyin</value>
   </data>
   <data name="SettingsEnableSpellChecking.Header" xml:space="preserve">
-    <value>___NEEDS_TRANSLATION___</value>
+    <value>Yazým denetimini etkinleþtir</value>
   </data>
   <data name="SettingsFocusTextInput.Header" xml:space="preserve">
-    <value>___NEEDS_TRANSLATION___</value>
+    <value>Odak metin giriþi konuþmasý etkinleþtirildi</value>
   </data>
 </root>
