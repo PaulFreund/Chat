@@ -12,7 +12,8 @@ App features:
 XMPP/Jabber, Facebook ve Google Talk hesaplarý
 Güvenli baðlantý ve yetkilendirme
 Connected Standby ile her zaman baðlý
-Baðlantý kesilmeleri/hatalarý durumunda bildirim ve otomatik yeniden baðlanma5 eþzamanlý hesap, bunlarýn ikisi Connected Standby
+Baðlantý kesilmeleri/hatalarý durumunda bildirim ve otomatik yeniden baðlanma
+5 eþzamanlý hesap, bunlarýn ikisi Connected Standby
 Baðlantý istikrarý optimize
 Hemen açýlan görünümde sohbet
 
