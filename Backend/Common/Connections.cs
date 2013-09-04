@@ -211,6 +211,15 @@ namespace Backend.Common
             }
         }
 
+        public DateTime GetLastReceiveTime(string id)
+        {
+            Connection connection = _connectionList[id];
+            if (connection != null)
+                return connection.LastReceiveTime;
+
+            return default(DateTime);
+        }
+
         public void WaitProcessing(string id)
         {
             Connection connection = _connectionList[id];
@@ -239,6 +248,7 @@ namespace Backend.Common
         #region publicproperties
 
         public readonly string Id;
+        public DateTime LastReceiveTime { get { return _lastReceiveTime; } }
 
         #endregion
 
@@ -251,6 +261,7 @@ namespace Backend.Common
         private ManualResetEvent _updateMutex = new ManualResetEvent(true);
         private bool _tryReconnect = false;
         private ErrorType _lastError = ErrorType.None;
+        private DateTime _lastReceiveTime = DateTime.Now;
 
         private bool IsInternetAvailable 
         {
@@ -472,6 +483,7 @@ namespace Backend.Common
 
         private void OnReceive(object sender, TagEventArgs e)
         {
+            _lastReceiveTime = DateTime.Now;
             PushEvent(e.tag);
         }
 

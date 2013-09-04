@@ -41,15 +41,6 @@ namespace BackgroundTasks
             var backend = Runtime.Instance;
             if (backend != null)
                 backend.OnBackgroundTaskRunning(taskInstance);
-
-            try
-            {
-                IControlChannelTriggerEventDetails channelEventArgs = (IControlChannelTriggerEventDetails)taskInstance.TriggerDetails;
-                ControlChannelTrigger channel = channelEventArgs.ControlChannelTrigger;
-                channel.FlushTransport();
-            }
-            catch
-            { }
         }
 
         public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
@@ -69,16 +60,6 @@ namespace BackgroundTasks
             var backend = Runtime.Instance;
             if (backend != null)
                 backend.OnBackgroundTaskRunning(taskInstance);
-
-            try
-            {
-                IControlChannelTriggerEventDetails channelEventArgs = (IControlChannelTriggerEventDetails)taskInstance.TriggerDetails;
-                ControlChannelTrigger channel = channelEventArgs.ControlChannelTrigger;
-                
-                channel.FlushTransport();
-            }
-            catch
-            { }
         }
 
         public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)

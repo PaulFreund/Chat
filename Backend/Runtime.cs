@@ -33,6 +33,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
+using Windows.Networking.Sockets;
 using Windows.UI.Core;
 using XMPP;
 using Tags = XMPP.tags;
@@ -391,74 +392,126 @@ namespace Backend
 
         public async void OnBackgroundTaskRunning(IBackgroundTaskInstance instance)
         {
-            var defferal = instance.GetDeferral();
-            if (instance.Task.Name.StartsWith("PN"))
+            BackgroundTaskDeferral defferal = null;
+            ControlChannelTrigger channelTrigger = null;
+
+            try
             {
-                var serverId = instance.Task.Name.Substring(2);
+                // Get defferal
+                defferal = instance.GetDeferral();
 
-                if( _connections != null )
-                    _connections.WaitProcessing(serverId);
-                return;
+                // Get channel trigger
+                var channelEventArgs = (IControlChannelTriggerEventDetails)instance.TriggerDetails;
+                if (channelEventArgs != null)
+                    channelTrigger = channelEventArgs.ControlChannelTrigger;
+
+                // Push notification
+                if (instance.Task.Name.StartsWith("PN"))
+                {
+                    var serverId = instance.Task.Name.Substring(2);
+
+                    if (_connections != null)
+                        _connections.WaitProcessing(serverId);
+                }
+                // Keep alive
+                else if (instance.Task.Name.StartsWith("KA"))
+                {
+                    var serverId = instance.Task.Name.Substring(2);
+
+                    // Send keepalive for the next check
+                    var pingIq = new XMPP.tags.jabber.client.iq();
+                    pingIq.type = Tags.jabber.client.iq.typeEnum.get;
+                    pingIq.from = serverId;
+                    pingIq.Add(new XMPP.tags.xmpp.ping.ping());
+                    _connections.Send(serverId, pingIq);
+
+                    // Check how long since the last packet
+                    var diffTime = DateTime.Now - _connections.GetLastReceiveTime(serverId);
+                    var diffTimeMinutes = (uint)(diffTime.TotalMinutes + 0.5);
+
+                    var keepAliveMinutes = (channelTrigger != null) ? channelTrigger.CurrentKeepAliveIntervalInMinutes : 15; // 15 is default
+
+                    if (diffTimeMinutes > keepAliveMinutes)
+                    {
+                        PushEvent(LogType.Info, "Keepalive FALIED: " + (keepAliveMinutes - diffTimeMinutes));
+                        channelTrigger.DecreaseNetworkKeepAliveInterval();
+                        PushEvent(ErrorType.NotConnected, ErrorPolicyType.Reconnect);
+                    }      
+                    else
+                        PushEvent(LogType.Info, "Keepalive distance: " + (keepAliveMinutes-diffTimeMinutes));
+                }
+                // Everything else
+                else
+                {
+                    switch (instance.Task.Name)
+                    {
+                        case "ControlChannelReset":
+                            await Task.Delay(_eventDelayMS);
+                            PushEvent(WindowsType.ControlChannelReset);
+                            _connections.Update();
+                            break;
+
+                        case "InternetAvailable":
+                            await Task.Delay(_eventDelayMS);
+                            PushEvent(WindowsType.InternetAvailable);
+                            _connections.Update();
+                            break;
+
+                        case "InternetNotAvailable":
+                            await Task.Delay(_eventDelayMS);
+                            PushEvent(WindowsType.InternetNotAvailable);
+                            _connections.Update();
+                            break;
+
+                        case "ServicingComplete":
+                            PushEvent(WindowsType.ServicingComplete);
+                            break;
+
+                        case "SessionConnected":
+                            await Task.Delay(_eventDelayMS);
+                            PushEvent(WindowsType.SessionConnected);
+                            _connections.Update();
+                            break;
+
+                        case "UserAway":
+                            PushEvent(WindowsType.UserAway);
+                            break;
+
+                        case "UserPresent":
+                            PushEvent(WindowsType.UserPresent);
+                            break;
+
+                        case "LockScreenApplicationAdded":
+                            PushEvent(WindowsType.LockScreenApplicationAdded);
+                            OnBackgroundStatusChanged();
+                            break;
+
+                        case "LockScreenApplicationRemoved":
+                            PushEvent(WindowsType.LockScreenApplicationRemoved);
+                            OnBackgroundStatusChanged();
+                            break;
+
+                        case "TimeZoneChange":
+                            PushEvent(WindowsType.TimeZoneChange);
+                            break;
+                    }
+                }
             }
-
-            if (instance.Task.Name.StartsWith("KA"))
-                return;
-
-            switch (instance.Task.Name)
+            catch 
             {
-                case "ControlChannelReset":
-                    await Task.Delay(_eventDelayMS);
-                    PushEvent(WindowsType.ControlChannelReset);
-                    _connections.Update();
-                    break;
-
-                case "InternetAvailable":
-                    await Task.Delay(_eventDelayMS);
-                    PushEvent(WindowsType.InternetAvailable);
-                    _connections.Update();
-                    break;
-
-                case "InternetNotAvailable":
-                    await Task.Delay(_eventDelayMS);
-                    PushEvent(WindowsType.InternetNotAvailable);
-                    _connections.Update();
-                    break;
-
-                case "ServicingComplete":
-                    PushEvent(WindowsType.ServicingComplete);
-                    break;
-
-                case "SessionConnected":
-                    await Task.Delay(_eventDelayMS);
-                    PushEvent(WindowsType.SessionConnected);
-                    _connections.Update();
-                    break;
-
-                case "UserAway":
-                    PushEvent(WindowsType.UserAway);
-                    break;
-
-                case "UserPresent":
-                    PushEvent(WindowsType.UserPresent);
-                    break;
-
-                case "LockScreenApplicationAdded":
-                    PushEvent(WindowsType.LockScreenApplicationAdded);
-                    OnBackgroundStatusChanged();
-                    break;
-
-                case "LockScreenApplicationRemoved":
-                    PushEvent(WindowsType.LockScreenApplicationRemoved);
-                    OnBackgroundStatusChanged();
-                    break;
-
-                case "TimeZoneChange":
-                    PushEvent(WindowsType.TimeZoneChange);
-                    break;
+                if( defferal != null )
+                    defferal.Complete(); 
             }
+    
+            if (defferal != null)
+                defferal.Complete();
 
-            defferal.Complete();
-
+            try
+            {
+                if (channelTrigger != null)
+                    channelTrigger.FlushTransport();
+            }
+            catch { }
         }
 
         public void OnBackgroundTaskCanceled(IBackgroundTaskInstance instance, string name, BackgroundTaskCancellationReason reason)

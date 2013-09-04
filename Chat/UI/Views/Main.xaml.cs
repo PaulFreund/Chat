@@ -63,7 +63,6 @@ namespace Chat.UI.Views
         }
 
         private bool _isCtrlKeyPressed = false;
-        private bool _isAltKeyPressed = false;
 
         private SettingsCommand aboutCommand = null;
         private SettingsCommand privacyCommand = null;
@@ -465,7 +464,6 @@ namespace Chat.UI.Views
             switch (e.Key)
             {
                 case VirtualKey.Control:    _isCtrlKeyPressed = true;   break;
-                case VirtualKey.Menu:       _isAltKeyPressed = true;    break;
 
                 case VirtualKey.Back:
                     if( _isCtrlKeyPressed && ConversationHeaderControl.Visibility == Visibility.Visible )
@@ -481,7 +479,6 @@ namespace Chat.UI.Views
             switch(e.Key)
             {
                 case VirtualKey.Control:    _isCtrlKeyPressed = false;   break;
-                case VirtualKey.Menu:       _isAltKeyPressed = false;    break;
                 default: return;
             }
         }
