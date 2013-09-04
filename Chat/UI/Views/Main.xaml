@@ -54,7 +54,7 @@
     <Grid 
         x:Name="MainGrid" 
         Background="{Binding ContentBackground, Source={StaticResource AppColors}}"
-        FlowDirection="{Binding invertInterface, Converter={StaticResource BoolToFlow}}"
+        FlowDirection="{Binding invertInterface, Converter={StaticResource BoolToFlow}}" KeyDown="MainGrid_KeyDown" KeyUp="MainGrid_KeyUp"
     >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

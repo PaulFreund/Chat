@@ -86,8 +86,23 @@ namespace Chat.UI.Controls
             {
                 await Frontend.RunAsync(() =>
                 {
-                    _selectedContact = null;
-                    RosterList.SelectedItem = null;
+                    bool backSwap = false;
+
+                    foreach (Contact contact in RosterList.DataContext as List<Contact>)
+                    {
+                        if(contact.HasUnreadMessages)
+                        {
+                            backSwap = true;
+                            _selectedContact = contact;
+                            RosterList.SelectedItem = contact;
+                        }
+                    }
+
+                    if(!backSwap)
+                    {
+                        _selectedContact = null;
+                        RosterList.SelectedItem = null;
+                    }
                 });
             }
             catch (Exception uiEx) { Frontend.UIError(uiEx); }

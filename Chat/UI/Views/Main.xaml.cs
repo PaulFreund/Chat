@@ -31,6 +31,7 @@ using Backend.Data;
 using Chat.UI.Flyout;
 using System;
 using System.Linq;
+using Windows.System;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -60,6 +61,9 @@ namespace Chat.UI.Views
             get { return this.DataContext as Contact; }
             set { this.DataContext = value; }
         }
+
+        private bool _isCtrlKeyPressed = false;
+        private bool _isAltKeyPressed = false;
 
         private SettingsCommand aboutCommand = null;
         private SettingsCommand privacyCommand = null;
@@ -452,6 +456,34 @@ namespace Chat.UI.Views
                 });
             }
             catch (Exception uiEx) { Frontend.UIError(uiEx); }
+        }
+
+
+
+        private void MainGrid_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case VirtualKey.Control:    _isCtrlKeyPressed = true;   break;
+                case VirtualKey.Menu:       _isAltKeyPressed = true;    break;
+
+                case VirtualKey.Back:
+                    if( _isCtrlKeyPressed && ConversationHeaderControl.Visibility == Visibility.Visible )
+                        Frontend.Events.DeselectContact();
+                    break;
+
+                default: return;
+            }
+        }
+
+        private void MainGrid_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            switch(e.Key)
+            {
+                case VirtualKey.Control:    _isCtrlKeyPressed = false;   break;
+                case VirtualKey.Menu:       _isAltKeyPressed = false;    break;
+                default: return;
+            }
         }
 
 
