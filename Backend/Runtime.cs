@@ -418,27 +418,8 @@ namespace Backend
                 {
                     var serverId = instance.Task.Name.Substring(2);
 
-                    // Send keepalive for the next check
-                    var pingIq = new XMPP.tags.jabber.client.iq();
-                    pingIq.type = Tags.jabber.client.iq.typeEnum.get;
-                    pingIq.from = serverId;
-                    pingIq.Add(new XMPP.tags.xmpp.ping.ping());
-                    _connections.Send(serverId, pingIq);
-
-                    // Check how long since the last packet
-                    var diffTime = DateTime.Now - _connections.GetLastReceiveTime(serverId);
-                    var diffTimeMinutes = (uint)(diffTime.TotalMinutes + 0.5);
-
-                    var keepAliveMinutes = (channelTrigger != null) ? channelTrigger.CurrentKeepAliveIntervalInMinutes : 15; // 15 is default
-
-                    if (diffTimeMinutes > keepAliveMinutes)
-                    {
-                        PushEvent(LogType.Info, "Keepalive FALIED: " + (keepAliveMinutes - diffTimeMinutes));
-                        channelTrigger.DecreaseNetworkKeepAliveInterval();
-                        PushEvent(ErrorType.NotConnected, ErrorPolicyType.Reconnect);
-                    }      
-                    else
-                        PushEvent(LogType.Info, "Keepalive distance: " + (keepAliveMinutes-diffTimeMinutes));
+                    if (_connections != null)
+                        _connections.CheckKeepAlive(serverId, channelTrigger);
                 }
                 // Everything else
                 else

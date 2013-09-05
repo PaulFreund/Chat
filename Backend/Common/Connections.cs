@@ -211,13 +211,11 @@ namespace Backend.Common
             }
         }
 
-        public DateTime GetLastReceiveTime(string id)
+        public void CheckKeepAlive(string id, ControlChannelTrigger trigger)
         {
             Connection connection = _connectionList[id];
             if (connection != null)
-                return connection.LastReceiveTime;
-
-            return default(DateTime);
+                connection.CheckKeepAlive(trigger);
         }
 
         public void WaitProcessing(string id)
@@ -248,7 +246,6 @@ namespace Backend.Common
         #region publicproperties
 
         public readonly string Id;
-        public DateTime LastReceiveTime { get { return _lastReceiveTime; } }
 
         #endregion
 
@@ -436,6 +433,28 @@ namespace Backend.Common
         public void WaitProcessing()
         {
             _XMPP.ProcessComplete.WaitOne(10000);
+        }
+
+        public void CheckKeepAlive(ControlChannelTrigger trigger)
+        {
+            // Send keepalive for the next check
+            var pingIq = new XMPP.tags.jabber.client.iq();
+            pingIq.type = Tags.jabber.client.iq.typeEnum.get;
+            pingIq.from = Id;
+            pingIq.Add(new XMPP.tags.xmpp.ping.ping());
+            Send(pingIq);
+
+            // Check how long since the last packet
+            var diffTime = DateTime.Now - _lastReceiveTime;
+            var diffTimeMinutes = (uint)diffTime.TotalMinutes;
+
+            var keepAliveMinutes = (trigger != null) ? trigger.CurrentKeepAliveIntervalInMinutes : 15; // 15 is default
+
+            if (diffTimeMinutes > keepAliveMinutes)
+            {
+                trigger.DecreaseNetworkKeepAliveInterval();
+                OnError(this, new ErrorEventArgs("Connection to server lost", ErrorType.NotConnected, ErrorPolicyType.Reconnect));
+            }
         }
 
         #endregion
