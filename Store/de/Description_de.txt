@@ -36,6 +36,6 @@ Notes:
 ===================================
 
 Hinzugefügte Funktionen
-* Klickbare Links in Konversationen ( Danke zsgalusz (GitHub) )
-* Optionale Rechtschreibprüfung für die Texteingabe
-* Optionales automatisches Fokussieren der Texteingabe bei Aktivierung von Konversationen
+* Beseitigen von Fehlern und erhöhen der Verbindungsstabilität
+* CTRL+Backspace Aktiviert zurück Knopf in angedocktem Zustand
+* Zurück Knopf in angedocktem Zustand öffnet ungelesene Nachrichten

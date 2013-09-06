@@ -36,6 +36,6 @@ Notes:
 ===================================
 
 Added features
-* Clickable links in conversations ( Thanks zsgalusz (GitHub) )
-* Optional spell-checking for text input
-* Optional auto-focus for of text input if conversation is activated
+* Bug-fixes and improved connection stability
+* CTRL+Backspace invokes back button in snapped view
+* Back button opens unread messages in snapped view

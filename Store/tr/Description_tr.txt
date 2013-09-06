@@ -36,6 +36,6 @@ Notes:
 ===================================
 
 Eklenen özellikler
-* Konuþmalarda týklanabilir baðlantýlar (zsgalusz (GitHub) sayesinde)
-* Metin giriþi için isteðe baðlý yazým denetimi
-* Konuþma etkinse, metin giriþi için isteðe baðlý otomatik odaklanma
+* Hata-onarimi ve gelismis baglanti dengesi.
+* CTRL + Backspace tusu hizli görüntülemede geri tusunu çagristiriyor.
+* Geri tusu hizli görüntülemede okunmamis mesajlari açiyor.
