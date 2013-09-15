@@ -55,11 +55,10 @@ namespace Chat.Frontend
                 if (presence.from == null)
                     presence.from = presence.Account;
 
-                if (presence.to == null)
-                    presence.to = presence.Account;
-
                 var from = new XMPP.JID(presence.from);
-                var to = new XMPP.JID(presence.to);
+                // The rest of the application only accepts to = jid
+                var to = new XMPP.JID(presence.Account);
+
 
                 // Get matching Account
                 Account account = Frontend.Accounts[presence.Account];
@@ -200,7 +199,9 @@ namespace Chat.Frontend
                     if (message.bodyElements.Count() > 0)
                     {
                         JID from = message.from;
-                        JID to = message.to;
+
+                        // The rest of the application only accepts to = jid
+                        JID to = message.Account;
 
                         Account account = Frontend.Accounts[message.Account];
                         if (account != null)
@@ -316,6 +317,7 @@ namespace Chat.Frontend
                         var jid = new JID(bind.jid.Value);
                         if (!string.IsNullOrEmpty(jid))
                         {
+                            account.serverJID = jid;
                             account.OwnResource = jid.Resource;
                             account.OwnContact.SetResource(jid.Resource);
                         }

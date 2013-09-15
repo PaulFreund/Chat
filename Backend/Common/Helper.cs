@@ -189,12 +189,12 @@ namespace Backend.Common
             Runtime.Interface.SendTag(account, presence);
         }
 
-        public static void RequestVCard(XMPP.JID currentJID)
+        public static void RequestVCard(Account account)
         {
             var iq = new Tags.jabber.client.iq();
 
-            if (!string.IsNullOrEmpty(currentJID.Bare))
-                iq.from = currentJID;
+            if (!string.IsNullOrEmpty(account.CurrentJID.Bare))
+                iq.from = account.CurrentJID;
             else
                 return;
 
@@ -203,15 +203,15 @@ namespace Backend.Common
             var vcard = new Tags.vcard_temp.vCard();
             iq.Add(vcard);
 
-            Runtime.Interface.SendTag(currentJID.Bare, iq);
+            Runtime.Interface.SendTag(new XMPP.JID(account.jid).Bare, iq);
         }
 
-        public static void RequestRoster(XMPP.JID currentJID)
+        public static void RequestRoster(Account account)
         {
             var iq = new Tags.jabber.client.iq();
 
-            if (!string.IsNullOrEmpty(currentJID.Bare))
-                iq.from = currentJID;
+            if (!string.IsNullOrEmpty(account.CurrentJID.Bare))
+                iq.from = account.CurrentJID;
             else
                 return;
 
@@ -221,10 +221,10 @@ namespace Backend.Common
             iq.Add(query);
 
 #if DEBUG
-            System.Diagnostics.Debug.WriteLine("[Frontend] Requesting Roster for: " + currentJID.ToString() + " id " + iq.id);
+            System.Diagnostics.Debug.WriteLine("[Frontend] Requesting Roster for: " + account.CurrentJID.ToString() + " id " + iq.id);
 #endif
             
-            Runtime.Interface.SendTag(currentJID.Bare, iq);
+            Runtime.Interface.SendTag(new XMPP.JID(account.jid).Bare, iq);
         }
     }
 }

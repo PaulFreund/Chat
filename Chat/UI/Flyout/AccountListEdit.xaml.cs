@@ -157,7 +157,7 @@ namespace Chat.UI.Flyout
             template.Port = 5222;
             template.SSL = true;
             template.OldSSL = false;
-            template.Plain = false;
+            template.Plain = true;
             template.MD5 = true;
             template.SCRAM = true;
             new Flyout(FlyoutType.AccountEdit, template, flyoutSelf);

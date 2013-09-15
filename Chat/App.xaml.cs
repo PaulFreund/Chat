@@ -361,8 +361,8 @@ namespace Chat
                                 break;
                             case StateType.Running:
                                 StartLoading(account.jid);
-                                Helper.RequestRoster(account.CurrentJID);
-                                Helper.RequestVCard(account.CurrentJID);
+                                Helper.RequestRoster(account);
+                                Helper.RequestVCard(account);
                                 break;
                             case StateType.Disconnecting:
                                 StopLoading(account.jid);

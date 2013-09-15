@@ -427,7 +427,10 @@ namespace Chat.UI.Controls
                                 {
                                     var message = XMPPHelper.SendMessage(self.jid, other.CurrentJID, SendText.Text);
                                     if (message != null)
+                                    {
+                                        message.from = message.Account;
                                         CurrentConversation.AddMessage(message);
+                                    }
 
                                     SendText.Text = string.Empty;
                                 }

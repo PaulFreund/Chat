@@ -100,6 +100,9 @@ namespace Chat.UI.Views
                 Frontend.Events.OnAccountListChanged += Events_OnAccountListChange;
                 Frontend.Notifications.NotificationList.CollectionChanged += NotificationList_CollectionChanged;
 
+                // Reset control state on focus
+                Frontend.CoreWindow.Activated += (s, e) => { _isCtrlKeyPressed = false; };
+
                 RecreateLayout();
             }
             catch (Exception uiEx) { Frontend.UIError(uiEx); }

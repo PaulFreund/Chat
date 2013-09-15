@@ -343,6 +343,7 @@ namespace Backend.Common
                     errorState = true;
                 }
 
+                _XMPP.Settings.Account = this.Id;
                 _XMPP.Settings.Id = _currentParameters.JID;
                 _XMPP.Settings.Password = _currentParameters.Password;
                 _XMPP.Settings.Hostname = _currentParameters.Hostname;

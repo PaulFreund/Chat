@@ -423,7 +423,7 @@ namespace Backend.Data
                 var curjid = new XMPP.JID(jid);
 
                 var resource = CurrentResource;
-                if (resource != null)
+                if (resource != null && resource.id != curjid.Bare)
                     curjid.Resource = resource.id;
 
                 return curjid.ToString();

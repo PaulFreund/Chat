@@ -145,11 +145,17 @@ namespace Backend.Data
 
         public Dictionary<string, Conversation> CurrentConversations = new Dictionary<string, Conversation>();
 
+
+        public string serverJID = string.Empty;
         public XMPP.JID CurrentJID 
         {
             get
             {
-                var jid = new XMPP.JID(this.jid);
+                var jid = default(XMPP.JID);
+                if (!string.IsNullOrEmpty(this.serverJID))
+                    jid = new XMPP.JID(this.serverJID);
+                else
+                    jid = new XMPP.JID(this.jid);
 
                 if(!string.IsNullOrEmpty(OwnResource))
                     jid.Resource = OwnResource;
