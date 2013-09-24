@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="PaulFreund-LVL3Solutions.Chat" Publisher="CN=5045BF9A-D80C-40D3-AEE4-755B32AF72DF" Version="1.2.0.39" />
+  <Identity Name="PaulFreund-LVL3Solutions.Chat" Publisher="CN=5045BF9A-D80C-40D3-AEE4-755B32AF72DF" Version="1.2.0.40" />
   <Properties>
     <DisplayName>Chat</DisplayName>
     <PublisherDisplayName>LVL3 Solutions Inh Paul Freund</PublisherDisplayName>
