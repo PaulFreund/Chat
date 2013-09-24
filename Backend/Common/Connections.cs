@@ -92,7 +92,7 @@ namespace Backend.Common
             {
                 var list = new List<string>();
 
-                _settingMutex.WaitOne(10000);
+                _settingMutex.WaitOne(4000);
                 _settingMutex.Reset();
 
                 foreach (var item in _connectionList)
@@ -106,7 +106,7 @@ namespace Backend.Common
 
         public void Update() 
         {
-            _settingMutex.WaitOne(10000);
+            _settingMutex.WaitOne(4000);
             _settingMutex.Reset();
 
             Accounts accounts = new Accounts();
@@ -298,7 +298,7 @@ namespace Backend.Common
         {
             bool disconnected = false;
             bool errorState = false;
-            _updateMutex.WaitOne(10000);
+            _updateMutex.WaitOne(4000);
             _updateMutex.Reset();
             _updating = true;
 
@@ -433,7 +433,7 @@ namespace Backend.Common
 
         public void WaitProcessing()
         {
-            _XMPP.ProcessComplete.WaitOne(10000);
+            _XMPP.ProcessComplete.WaitOne(4000);
         }
 
         public void CheckKeepAlive(ControlChannelTrigger trigger)

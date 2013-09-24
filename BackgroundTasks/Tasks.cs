@@ -34,239 +34,322 @@ namespace BackgroundTasks
     // ControlChannel
     public sealed class KeepAliveTrigger : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "KeepAliveTrigger", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
     public sealed class PushNotificationTrigger : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "PushNotificationTrigger", reason);
+            if (defferal != null)
+                defferal.Complete(); 
         }
     }
 
     // SystemTrigger
     public sealed class ControlChannelReset : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "ControlChannelReset", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class InternetAvailable : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "InternetAvailable", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class InternetNotAvailable : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "InternetNotAvailable", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class ServicingComplete : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "ServicingComplete", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class SessionConnected : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "SessionConnected", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class UserAway : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "UserAway", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
-
     public sealed class UserPresent : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "UserPresent", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class LockScreenApplicationAdded : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "LockScreenApplicationAdded", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class LockScreenApplicationRemoved : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "LockScreenApplicationRemoved", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 
 
     public sealed class TimeZoneChange : IBackgroundTask
     {
+        private BackgroundTaskDeferral defferal = null;
+
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            taskInstance.Canceled += Canceled;
+            // Get defferal
+            defferal = taskInstance.GetDeferral();
 
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskRunning(taskInstance);
-        }
+            try
+            {
+                var backend = Runtime.Instance;
+                if (backend != null)
+                    backend.OnBackgroundTaskRunning(taskInstance);
+            }
+            catch
+            {
+                if (defferal != null)
+                    defferal.Complete();
+            }
 
-        public void Canceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
-        {
-            var backend = Runtime.Instance;
-            if (backend != null)
-                backend.OnBackgroundTaskCanceled(sender, "TimeZoneChange", reason);
+            if (defferal != null)
+                defferal.Complete();
         }
     }
 

@@ -50,7 +50,7 @@ namespace Backend.Data
                 {
                     var uri = new Uri(DefaultAvatarURI);
                     var getTask = Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri).AsTask();
-                    getTask.Wait(10000);
+                    getTask.Wait(4000);
 
                     if (getTask.IsCompleted && getTask.Result != null)
                     {
@@ -67,7 +67,7 @@ namespace Backend.Data
             get
             {
                 var task = ApplicationData.Current.LocalFolder.CreateFolderAsync(FolderName, CreationCollisionOption.OpenIfExists).AsTask();
-                task.Wait(10000);
+                task.Wait(4000);
                 if (task.IsCompleted && task.Result != null)
                     return task.Result;
                 else
@@ -107,13 +107,13 @@ namespace Backend.Data
 
                 // Create the file ( and overwrite if neccessary )
                 var createTask = Folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting).AsTask();
-                createTask.Wait(10000);
+                createTask.Wait(4000);
 
                 // If creation succeeded, write the image
                 if (createTask.IsCompleted && createTask.Result != null)
                 {
                     var writeTask = FileIO.WriteBytesAsync(createTask.Result, image).AsTask();
-                    writeTask.Wait(10000);
+                    writeTask.Wait(4000);
 
                     // return the hash of the new image if everything went well
                     if (writeTask.IsCompleted)
@@ -146,7 +146,7 @@ namespace Backend.Data
                     if (current > mapLatest[jidhash])
                     {
                         mapLatest[jidhash] = current;
-                        mapLatestFile[jidhash].DeleteAsync().AsTask().Wait(10000);
+                        mapLatestFile[jidhash].DeleteAsync().AsTask().Wait(4000);
                         mapLatestFile[jidhash] = file;
                     }
                 }
@@ -158,7 +158,7 @@ namespace Backend.Data
             try
             {
                 foreach (var file in FindFiles(Helper.EncodeBASE64(jid)))
-                    file.DeleteAsync().AsTask().Wait(10000);
+                    file.DeleteAsync().AsTask().Wait(4000);
             }
             catch { }
         }
@@ -171,7 +171,7 @@ namespace Backend.Data
                 if (files != null)
                 {
                     foreach (var file in files)
-                        file.DeleteAsync().AsTask().Wait(10000);
+                        file.DeleteAsync().AsTask().Wait(4000);
                 }
             }
             catch { }
@@ -187,7 +187,7 @@ namespace Backend.Data
                 var stream = new InMemoryRandomAccessStream();
                 var writer = new DataWriter(stream);
                 writer.WriteBytes(data);
-                writer.StoreAsync().AsTask().Wait(10000);
+                writer.StoreAsync().AsTask().Wait(4000);
                 stream.Seek(0);
                 imageData.SetSource(stream);
             }
@@ -224,7 +224,7 @@ namespace Backend.Data
                 {
                     // Get the file
                     var openTask = file.OpenAsync(FileAccessMode.Read).AsTask();
-                    openTask.Wait(10000);
+                    openTask.Wait(4000);
 
                     if (openTask.IsCompleted && openTask.Result != null)
                     {
@@ -232,7 +232,7 @@ namespace Backend.Data
 
                         var reader = new DataReader(fileStream);
                         var loadTask = reader.LoadAsync((uint)fileStream.Size).AsTask();
-                        loadTask.Wait(10000);
+                        loadTask.Wait(4000);
 
                         if (loadTask.IsCompleted)
                         {
@@ -270,7 +270,7 @@ namespace Backend.Data
             try
             {
                 var getFilesTask = Folder.GetFilesAsync().AsTask();
-                getFilesTask.Wait(10000);
+                getFilesTask.Wait(4000);
                 if (getFilesTask.IsCompleted && getFilesTask.Result != null)
                     return getFilesTask.Result;
                 else

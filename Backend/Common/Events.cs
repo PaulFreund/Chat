@@ -288,7 +288,7 @@ namespace Backend.Common
  
         public void Enqueue(BackendEvent newEvent)
         {
-            _accessMutex.WaitOne(10000);
+            _accessMutex.WaitOne(4000);
             _accessMutex.Reset();
 
             if (newEvent.Type == EventType.Message)
@@ -308,7 +308,7 @@ namespace Backend.Common
         {
             BackendEvent dequeueEvent = null;
 
-            _accessMutex.WaitOne(10000);
+            _accessMutex.WaitOne(4000);
             _accessMutex.Reset();
 
             if (_events.Count > 0)

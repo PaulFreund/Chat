@@ -392,14 +392,10 @@ namespace Backend
 
         public async void OnBackgroundTaskRunning(IBackgroundTaskInstance instance)
         {
-            BackgroundTaskDeferral defferal = null;
             ControlChannelTrigger channelTrigger = null;
 
             try
             {
-                // Get defferal
-                defferal = instance.GetDeferral();
-
                 // Get channel trigger
                 var channelEventArgs = (IControlChannelTriggerEventDetails)instance.TriggerDetails;
                 if (channelEventArgs != null)
@@ -478,14 +474,10 @@ namespace Backend
                     }
                 }
             }
-            catch 
-            {
-                if( defferal != null )
-                    defferal.Complete(); 
-            }
+            catch {}
     
-            if (defferal != null)
-                defferal.Complete();
+            //if (defferal != null)
+            //    defferal.Complete();
 
             try
             {
@@ -495,24 +487,24 @@ namespace Backend
             catch { }
         }
 
-        public void OnBackgroundTaskCanceled(IBackgroundTaskInstance instance, string name, BackgroundTaskCancellationReason reason)
-        {
-            var canceled = true;
-            var strreason = reason.ToString();
-            switch (name)
-            {
-                case "ControlChannelReset": PushEvent(WindowsType.ControlChannelReset, canceled, strreason); break;
-                case "InternetAvailable": PushEvent(WindowsType.InternetAvailable, canceled, strreason); break;
-                case "InternetNotAvailable": PushEvent(WindowsType.InternetNotAvailable, canceled, strreason); break;
-                case "ServicingComplete": PushEvent(WindowsType.ServicingComplete, canceled, strreason); break;
-                case "SessionConnected": PushEvent(WindowsType.SessionConnected, canceled, strreason); break;
-                case "UserAway": PushEvent(WindowsType.UserAway, canceled, strreason); break;
-                case "UserPresent": PushEvent(WindowsType.UserPresent, canceled, strreason); break;
-                case "LockScreenApplicationAdded": PushEvent(WindowsType.LockScreenApplicationAdded, canceled, strreason); break;
-                case "LockScreenApplicationRemoved": PushEvent(WindowsType.LockScreenApplicationRemoved, canceled, strreason); break;
-                case "TimeZoneChange": PushEvent(WindowsType.TimeZoneChange, canceled, strreason); break;
-            }
-        }
+        //public void OnBackgroundTaskCanceled(IBackgroundTaskInstance instance, string name, BackgroundTaskCancellationReason reason)
+        //{
+        //    var canceled = true;
+        //    var strreason = reason.ToString();
+        //    switch (name)
+        //    {
+        //        case "ControlChannelReset": PushEvent(WindowsType.ControlChannelReset, canceled, strreason); break;
+        //        case "InternetAvailable": PushEvent(WindowsType.InternetAvailable, canceled, strreason); break;
+        //        case "InternetNotAvailable": PushEvent(WindowsType.InternetNotAvailable, canceled, strreason); break;
+        //        case "ServicingComplete": PushEvent(WindowsType.ServicingComplete, canceled, strreason); break;
+        //        case "SessionConnected": PushEvent(WindowsType.SessionConnected, canceled, strreason); break;
+        //        case "UserAway": PushEvent(WindowsType.UserAway, canceled, strreason); break;
+        //        case "UserPresent": PushEvent(WindowsType.UserPresent, canceled, strreason); break;
+        //        case "LockScreenApplicationAdded": PushEvent(WindowsType.LockScreenApplicationAdded, canceled, strreason); break;
+        //        case "LockScreenApplicationRemoved": PushEvent(WindowsType.LockScreenApplicationRemoved, canceled, strreason); break;
+        //        case "TimeZoneChange": PushEvent(WindowsType.TimeZoneChange, canceled, strreason); break;
+        //    }
+        //}
 
         #endregion
 

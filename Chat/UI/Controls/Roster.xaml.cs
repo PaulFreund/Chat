@@ -221,7 +221,7 @@ namespace Chat.UI.Controls
 
                         if (newList != null)
                         {
-                            _lockListBuffer.WaitOne(10000);
+                            _lockListBuffer.WaitOne(4000);
                             _lockListBuffer.Reset();
 
                             _listBuffer = newList;
@@ -265,7 +265,7 @@ namespace Chat.UI.Controls
                         {
                             _lockContactSelection = true;
                             {
-                                _lockListBuffer.WaitOne(10000);
+                                _lockListBuffer.WaitOne(4000);
                                 _lockListBuffer.Reset();
                                 {
                                     RosterList.DataContext = _listBuffer;
